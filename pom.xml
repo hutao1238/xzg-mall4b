@@ -2,25 +2,25 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
-    <groupId>com.yami.shop</groupId>
-    <artifactId>yami-shop</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
+    <groupId>com.xzg.mall</groupId>
+    <artifactId>xzg-mall4b</artifactId>
+    <version>1.0.0</version>
     <packaging>pom</packaging>
 
     <modules>
-        <module>yami-shop-admin</module>
-        <module>yami-shop-sys</module>
-        <module>yami-shop-common</module>
-        <module>yami-shop-api</module>
-        <module>yami-shop-bean</module>
-        <module>yami-shop-service</module>
-        <module>yami-shop-security</module>
-        <module>yami-shop-quartz</module>
-        <module>yami-shop-mp</module>
+        <module>xzg-mall-admin</module>
+        <module>xzg-mall-sys</module>
+        <module>xzg-mall-common</module>
+        <module>xzg-mall-api</module>
+        <module>xzg-mall-bean</module>
+        <module>xzg-mall-service</module>
+        <module>xzg-mall-security</module>
+        <module>xzg-mall-quartz</module>
+        <module>xzg-mall-mp</module>
     </modules>
 
     <properties>
-        <yami.shop.version>0.0.1-SNAPSHOT</yami.shop.version>
+        <xzg.mall.version>1.0.0</xzg.mall.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <maven.compiler.plugin.version>3.7.0</maven.compiler.plugin.version>
@@ -58,6 +58,7 @@
                 <artifactId>spring-security-oauth2-autoconfigure</artifactId>
                 <version>${security.oauth.auto.version}</version>
             </dependency>
+            <!-- 微信支付 -->
             <dependency>
                 <groupId>com.github.binarywang</groupId>
                 <artifactId>weixin-java-pay</artifactId>

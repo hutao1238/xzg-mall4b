@@ -6,28 +6,28 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="yami-shop-api" />
-        <module name="yami-shop-admin" />
-        <module name="yami-shop-common" />
-        <module name="yami-shop-sys" />
-        <module name="yami-shop-service" />
-        <module name="yami-shop-security" />
-        <module name="yami-shop-bean" />
-        <module name="yami-shop-mp" />
-        <module name="yami-shop-quartz" />
+        <module name="xzg-mall-bean" />
+        <module name="xzg-mall-common" />
+        <module name="xzg-mall-service" />
+        <module name="xzg-mall-quartz" />
+        <module name="xzg-mall-mp" />
+        <module name="xzg-mall-sys" />
+        <module name="xzg-mall-security" />
+        <module name="xzg-mall-admin" />
+        <module name="xzg-mall-api" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="yami-shop" target="1.8" />
-      <module name="yami-shop-admin" target="1.8" />
-      <module name="yami-shop-api" target="1.8" />
-      <module name="yami-shop-bean" target="1.8" />
-      <module name="yami-shop-common" target="1.8" />
-      <module name="yami-shop-mp" target="1.8" />
-      <module name="yami-shop-quartz" target="1.8" />
-      <module name="yami-shop-security" target="1.8" />
-      <module name="yami-shop-service" target="1.8" />
-      <module name="yami-shop-sys" target="1.8" />
+      <module name="xzg-mall-admin" target="1.8" />
+      <module name="xzg-mall-api" target="1.8" />
+      <module name="xzg-mall-bean" target="1.8" />
+      <module name="xzg-mall-common" target="1.8" />
+      <module name="xzg-mall-mp" target="1.8" />
+      <module name="xzg-mall-quartz" target="1.8" />
+      <module name="xzg-mall-security" target="1.8" />
+      <module name="xzg-mall-service" target="1.8" />
+      <module name="xzg-mall-sys" target="1.8" />
+      <module name="xzg-mall4b" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>

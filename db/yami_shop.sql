@@ -5083,23 +5083,23 @@ CREATE TABLE `tz_sys_log` (
 /*Data for the table `tz_sys_log` */
 
 insert  into `tz_sys_log`(`id`,`username`,`operation`,`method`,`params`,`time`,`ip`,`create_date`) values 
-(829,'admin','保存定时任务','com.yami.shop.quartz.controller.ScheduleJobController.save()','{\"jobId\":14,\"beanName\":\"orderTask\",\"methodName\":\"cancelOrder\",\"cronExpression\":\"0 * * * * ?\",\"status\":0,\"remark\":\"取消超时未支付订单\",\"createTime\":\"2019-06-24T06:51:51.074+0000\"}',167,'127.0.0.1','2019-06-24 14:51:51'),
-(830,'admin','保存定时任务','com.yami.shop.quartz.controller.ScheduleJobController.save()','{\"jobId\":16,\"beanName\":\"orderTask\",\"methodName\":\"confirmOrder\",\"cronExpression\":\"0 0/5 * * * ?\",\"status\":0,\"remark\":\"系统自动确认收货订单\",\"createTime\":\"2019-06-24T06:52:47.482+0000\"}',62,'127.0.0.1','2019-06-24 14:52:48'),
-(831,'admin','删除菜单','com.yami.shop.sys.controller.SysMenuController.delete()','168',8,'127.0.0.1','2019-06-26 14:04:22'),
-(832,'admin','删除菜单','com.yami.shop.sys.controller.SysMenuController.delete()','229',1,'127.0.0.1','2019-06-26 14:31:31'),
-(833,'admin','删除菜单','com.yami.shop.sys.controller.SysMenuController.delete()','231',6,'127.0.0.1','2019-06-26 14:31:37'),
-(834,'admin','删除菜单','com.yami.shop.sys.controller.SysMenuController.delete()','232',8,'127.0.0.1','2019-06-26 14:31:38'),
-(835,'admin','删除菜单','com.yami.shop.sys.controller.SysMenuController.delete()','233',25,'127.0.0.1','2019-06-26 14:31:42'),
-(836,'admin','删除菜单','com.yami.shop.sys.controller.SysMenuController.delete()','229',6,'127.0.0.1','2019-06-26 14:31:46'),
-(837,'admin','删除分类','com.yami.shop.admin.controller.CategoryController.delete()','92',536,'127.0.0.1','2019-07-01 11:14:38'),
-(838,'admin','保存角色','com.yami.shop.sys.controller.SysRoleController.save()','{\"roleId\":1,\"roleName\":\"管理员\",\"remark\":\"测试\",\"menuIdList\":[34,70,71,72,73,74,75,136,137,138,139,140,239,240,241,242,243,306,307,308,309,310,51,57,58,59,60,63,300,301,302,303,305,131,132,133,134,135,163,164,165,166,167,174,175,176,177,178,201,202,203,204,205,206,125,126,127,128,129,130,230,91,92,93,99,100,101,107,108,146,184,185,1,312,313,314,315,316,2,15,16,17,18,3,19,20,21,22,4,23,24,25,26,6,7,8,9,10,11,12,13,14,27,29,-666666],\"createTime\":\"2019-07-03T00:39:49.339+0000\"}',106,'127.0.0.1','2019-07-03 08:39:49'),
-(839,'admin','保存配置','com.yami.shop.sys.controller.SysConfigController.save()','{\"id\":1,\"paramKey\":\"测试\",\"paramValue\":\"1\",\"remark\":\"1\"}',17,'127.0.0.1','2019-07-03 08:57:59'),
-(840,'admin','删除配置','com.yami.shop.sys.controller.SysConfigController.delete()','[1]',18,'127.0.0.1','2019-07-03 08:58:20'),
-(841,'admin','新增公告管理','com.yami.shop.admin.controller.NoticeController.save()','{\"id\":4,\"shopId\":1,\"title\":\"测试\",\"content\":\"<p>1111</p>\",\"status\":1,\"isTop\":1,\"publishTime\":\"2019-07-03T02:05:55.730+0000\",\"updateTime\":\"2019-07-03T02:05:55.730+0000\"}',26,'127.0.0.1','2019-07-03 10:05:56'),
-(842,'admin','删除公告管理','com.yami.shop.admin.controller.NoticeController.removeById()','4',37,'127.0.0.1','2019-07-03 20:00:24'),
-(843,'admin','修改定时任务','com.yami.shop.quartz.controller.ScheduleJobController.update()','{\"jobId\":14,\"beanName\":\"orderTask\",\"methodName\":\"cancelOrder\",\"cronExpression\":\"0 * * * * ?\",\"status\":0,\"remark\":\"取消超时未支付订单\"}',50,'127.0.0.1','2019-08-07 17:01:52'),
-(844,'admin','修改定时任务','com.yami.shop.quartz.controller.ScheduleJobController.update()','{\"jobId\":16,\"beanName\":\"orderTask\",\"methodName\":\"confirmOrder\",\"cronExpression\":\"0 0/5 * * * ?\",\"status\":0,\"remark\":\"系统自动确认收货订单\"}',18,'127.0.0.1','2019-08-07 17:01:57'),
-(845,'admin','立即执行任务','com.yami.shop.quartz.controller.ScheduleJobController.run()','[14]',14,'127.0.0.1','2019-08-07 17:02:06');
+(829,'admin','保存定时任务','ScheduleJobController.save()','{\"jobId\":14,\"beanName\":\"orderTask\",\"methodName\":\"cancelOrder\",\"cronExpression\":\"0 * * * * ?\",\"status\":0,\"remark\":\"取消超时未支付订单\",\"createTime\":\"2019-06-24T06:51:51.074+0000\"}',167,'127.0.0.1','2019-06-24 14:51:51'),
+(830,'admin','保存定时任务','ScheduleJobController.save()','{\"jobId\":16,\"beanName\":\"orderTask\",\"methodName\":\"confirmOrder\",\"cronExpression\":\"0 0/5 * * * ?\",\"status\":0,\"remark\":\"系统自动确认收货订单\",\"createTime\":\"2019-06-24T06:52:47.482+0000\"}',62,'127.0.0.1','2019-06-24 14:52:48'),
+(831,'admin','删除菜单','SysMenuController.delete()','168',8,'127.0.0.1','2019-06-26 14:04:22'),
+(832,'admin','删除菜单','SysMenuController.delete()','229',1,'127.0.0.1','2019-06-26 14:31:31'),
+(833,'admin','删除菜单','SysMenuController.delete()','231',6,'127.0.0.1','2019-06-26 14:31:37'),
+(834,'admin','删除菜单','SysMenuController.delete()','232',8,'127.0.0.1','2019-06-26 14:31:38'),
+(835,'admin','删除菜单','SysMenuController.delete()','233',25,'127.0.0.1','2019-06-26 14:31:42'),
+(836,'admin','删除菜单','SysMenuController.delete()','229',6,'127.0.0.1','2019-06-26 14:31:46'),
+(837,'admin','删除分类','CategoryController.delete()','92',536,'127.0.0.1','2019-07-01 11:14:38'),
+(838,'admin','保存角色','SysRoleController.save()','{\"roleId\":1,\"roleName\":\"管理员\",\"remark\":\"测试\",\"menuIdList\":[34,70,71,72,73,74,75,136,137,138,139,140,239,240,241,242,243,306,307,308,309,310,51,57,58,59,60,63,300,301,302,303,305,131,132,133,134,135,163,164,165,166,167,174,175,176,177,178,201,202,203,204,205,206,125,126,127,128,129,130,230,91,92,93,99,100,101,107,108,146,184,185,1,312,313,314,315,316,2,15,16,17,18,3,19,20,21,22,4,23,24,25,26,6,7,8,9,10,11,12,13,14,27,29,-666666],\"createTime\":\"2019-07-03T00:39:49.339+0000\"}',106,'127.0.0.1','2019-07-03 08:39:49'),
+(839,'admin','保存配置','SysConfigController.save()','{\"id\":1,\"paramKey\":\"测试\",\"paramValue\":\"1\",\"remark\":\"1\"}',17,'127.0.0.1','2019-07-03 08:57:59'),
+(840,'admin','删除配置','SysConfigController.delete()','[1]',18,'127.0.0.1','2019-07-03 08:58:20'),
+(841,'admin','新增公告管理','NoticeController.save()','{\"id\":4,\"shopId\":1,\"title\":\"测试\",\"content\":\"<p>1111</p>\",\"status\":1,\"isTop\":1,\"publishTime\":\"2019-07-03T02:05:55.730+0000\",\"updateTime\":\"2019-07-03T02:05:55.730+0000\"}',26,'127.0.0.1','2019-07-03 10:05:56'),
+(842,'admin','删除公告管理','NoticeController.removeById()','4',37,'127.0.0.1','2019-07-03 20:00:24'),
+(843,'admin','修改定时任务','ScheduleJobController.update()','{\"jobId\":14,\"beanName\":\"orderTask\",\"methodName\":\"cancelOrder\",\"cronExpression\":\"0 * * * * ?\",\"status\":0,\"remark\":\"取消超时未支付订单\"}',50,'127.0.0.1','2019-08-07 17:01:52'),
+(844,'admin','修改定时任务','ScheduleJobController.update()','{\"jobId\":16,\"beanName\":\"orderTask\",\"methodName\":\"confirmOrder\",\"cronExpression\":\"0 0/5 * * * ?\",\"status\":0,\"remark\":\"系统自动确认收货订单\"}',18,'127.0.0.1','2019-08-07 17:01:57'),
+(845,'admin','立即执行任务','ScheduleJobController.run()','[14]',14,'127.0.0.1','2019-08-07 17:02:06');
 
 /*Table structure for table `tz_sys_menu` */
 
