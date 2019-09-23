@@ -1,12 +1,12 @@
 /*
 SQLyog Ultimate v12.5.1 (64 bit)
-MySQL - 5.7.23 : Database - yami_shops
+MySQL - 5.7.23 : Database - xzg_shops
 *********************************************************************
 */
 
-create database IF NOT EXISTS `yami_shops` default character set utf8 collate utf8_general_ci;
+create database IF NOT EXISTS `xzg_shops` default character set utf8 collate utf8_general_ci;
 
-USE yami_shops;
+USE xzg_shops;
 
 /*!40101 SET NAMES utf8 */;
 
@@ -4236,7 +4236,7 @@ CREATE TABLE `tz_message` (
 insert  into `tz_message`(`id`,`create_time`,`user_name`,`email`,`contact`,`content`,`reply`,`status`) values 
 (1,'2018-10-16 00:11:02','djr','123456','nihao','<p>aaaaaaqqqqffff</p>','<p>??</p>',0),
 (9,'2018-11-30 08:00:00','111','111','111','<p>11111dddd</p>','<p>111</p>',1),
-(10,'2019-03-15 18:48:05','yami','643254332@qq.com','15534243444','<p>hello</p>','<p>hi</p>',0);
+(10,'2019-03-15 18:48:05','xzg','643254332@qq.com','15534243444','<p>hello</p>','<p>hi</p>',0);
 
 /*Table structure for table `tz_notice` */
 

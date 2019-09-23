@@ -1,13 +1,3 @@
-/*
- * Copyright (c) 2018-2999 广州亚米信息科技有限公司 All rights reserved.
- *
- * https://www.gz-yami.com/
- *
- * 未经允许，不可做商业用途！
- *
- * 版权所有，侵权必究！
- */
-
 package com.xzg.mall.service.impl;
 
 import cn.hutool.core.collection.CollUtil;
@@ -16,7 +6,7 @@ import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.xzg.mall.bean.enums.ProdPropRule;
 import com.xzg.mall.bean.model.ProdProp;
-import com.xzg.mall.common.exception.YamiShopBindException;
+import com.xzg.mall.common.exception.XzgShopBindException;
 import com.xzg.mall.common.util.PageAdapter;
 import com.xzg.mall.dao.CategoryPropMapper;
 import com.xzg.mall.dao.ProdPropMapper;
@@ -58,7 +48,7 @@ public class ProdPropServiceImpl extends ServiceImpl<ProdPropMapper, ProdProp> i
     public void saveProdPropAndValues(@Valid ProdProp prodProp) {
         ProdProp dbProdProp = prodPropMapper.getProdPropByPropNameAndShopId(prodProp.getPropName(), prodProp.getShopId(), prodProp.getRule());
         if (dbProdProp != null) {
-            throw new YamiShopBindException("已有相同名称规格");
+            throw new XzgShopBindException("已有相同名称规格");
         }
         prodPropMapper.insert(prodProp);
         if (CollUtil.isEmpty(prodProp.getProdPropValues())) {
@@ -73,7 +63,7 @@ public class ProdPropServiceImpl extends ServiceImpl<ProdPropMapper, ProdProp> i
     public void updateProdPropAndValues(ProdProp prodProp) {
         ProdProp dbProdProp = prodPropMapper.getProdPropByPropNameAndShopId(prodProp.getPropName(), prodProp.getShopId(), prodProp.getRule());
         if (dbProdProp != null && !Objects.equals(prodProp.getPropName(), dbProdProp.getPropName())) {
-            throw new YamiShopBindException("已有相同名称规格");
+            throw new XzgShopBindException("已有相同名称规格");
         }
         prodPropMapper.updateById(prodProp);
         // 先删除原有的属性值，再添加新的属性值

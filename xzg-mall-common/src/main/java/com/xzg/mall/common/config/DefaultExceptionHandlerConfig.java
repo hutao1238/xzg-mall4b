@@ -1,16 +1,6 @@
-/*
- * Copyright (c) 2018-2999 广州亚米信息科技有限公司 All rights reserved.
- *
- * https://www.gz-yami.com/
- *
- * 未经允许，不可做商业用途！
- *
- * 版权所有，侵权必究！
- */
-
 package com.xzg.mall.common.config;
 
-import com.xzg.mall.common.exception.YamiShopBindException;
+import com.xzg.mall.common.exception.XzgShopBindException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
@@ -41,8 +31,8 @@ public class DefaultExceptionHandlerConfig {
         return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(e.getBindingResult().getFieldErrors().get(0).getDefaultMessage());
     }
 
-    @ExceptionHandler(YamiShopBindException.class)
-    public ResponseEntity<String> unauthorizedExceptionHandler(YamiShopBindException e){
+    @ExceptionHandler(XzgShopBindException.class)
+    public ResponseEntity<String> unauthorizedExceptionHandler(XzgShopBindException e){
         e.printStackTrace();
         return ResponseEntity.status(e.getHttpStatusCode()).body(e.getMessage());
     }

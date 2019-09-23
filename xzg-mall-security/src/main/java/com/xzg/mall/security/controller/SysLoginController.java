@@ -1,13 +1,3 @@
-/*
- * Copyright (c) 2018-2999 广州亚米信息科技有限公司 All rights reserved.
- *
- * https://www.gz-yami.com/
- *
- * 未经允许，不可做商业用途！
- *
- * 版权所有，侵权必究！
- */
-
 package com.xzg.mall.security.controller;
 
 
@@ -60,7 +50,7 @@ public class SysLoginController {
 	 */
 	@PostMapping(value = "/sys/logout")
 	public ResponseEntity<String> logout() {
-		Cache cache = cacheManager.getCache("yami_sys_user");
+		Cache cache = cacheManager.getCache("xzg_sys_user");
 		if (cache != null) {
 			cache.evict(SecurityUtils.getSysUser().getUsername());
 		}

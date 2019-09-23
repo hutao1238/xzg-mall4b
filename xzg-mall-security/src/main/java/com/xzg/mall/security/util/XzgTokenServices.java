@@ -1,13 +1,3 @@
-/*
- * Copyright (c) 2018-2999 广州亚米信息科技有限公司 All rights reserved.
- *
- * https://www.gz-yami.com/
- *
- * 未经允许，不可做商业用途！
- *
- * 版权所有，侵权必究！
- */
-
 package com.xzg.mall.security.util;
 
 import java.util.Date;
@@ -51,7 +41,7 @@ import org.springframework.util.Assert;
  * @author Dave Syer
  * @author LGH
  */
-public class YamiTokenServices implements AuthorizationServerTokenServices, ResourceServerTokenServices,
+public class XzgTokenServices implements AuthorizationServerTokenServices, ResourceServerTokenServices,
         ConsumerTokenServices, InitializingBean {
 
     // default 30 days.

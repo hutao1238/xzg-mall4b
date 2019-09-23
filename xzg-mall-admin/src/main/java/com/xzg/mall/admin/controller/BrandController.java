@@ -1,20 +1,10 @@
-/*
- * Copyright (c) 2018-2999 广州亚米信息科技有限公司 All rights reserved.
- *
- * https://www.gz-yami.com/
- *
- * 未经允许，不可做商业用途！
- *
- * 版权所有，侵权必究！
- */
-
 package com.xzg.mall.admin.controller;
 
 import cn.hutool.core.util.StrUtil;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.xzg.mall.bean.model.Brand;
-import com.xzg.mall.common.exception.YamiShopBindException;
+import com.xzg.mall.common.exception.XzgShopBindException;
 import com.xzg.mall.common.util.PageParam;
 import com.xzg.mall.service.BrandService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -69,7 +59,7 @@ public class BrandController {
     public ResponseEntity<Void> save(@Valid Brand brand) {
         Brand dbBrand = brandService.getByBrandName(brand.getBrandName());
         if (dbBrand != null) {
-            throw new YamiShopBindException("该品牌名称已存在");
+            throw new XzgShopBindException("该品牌名称已存在");
         }
         brandService.save(brand);
         return ResponseEntity.ok().build();
@@ -83,7 +73,7 @@ public class BrandController {
     public ResponseEntity<Void> update(@Valid Brand brand) {
         Brand dbBrand = brandService.getByBrandName(brand.getBrandName());
         if (dbBrand != null && !Objects.equals(dbBrand.getBrandId(), brand.getBrandId())) {
-            throw new YamiShopBindException("该品牌名称已存在");
+            throw new XzgShopBindException("该品牌名称已存在");
         }
         brandService.updateById(brand);
         return ResponseEntity.ok().build();

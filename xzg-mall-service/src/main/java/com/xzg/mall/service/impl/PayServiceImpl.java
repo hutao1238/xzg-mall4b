@@ -1,13 +1,3 @@
-/*
- * Copyright (c) 2018-2999 广州亚米信息科技有限公司 All rights reserved.
- *
- * https://www.gz-yami.com/
- *
- * 未经允许，不可做商业用途！
- *
- * 版权所有，侵权必究！
- */
-
 package com.xzg.mall.service.impl;
 
 import cn.hutool.core.lang.Snowflake;
@@ -19,7 +9,7 @@ import com.xzg.mall.bean.model.Order;
 import com.xzg.mall.bean.model.OrderSettlement;
 import com.xzg.mall.bean.app.param.PayParam;
 import com.xzg.mall.bean.pay.PayInfoDto;
-import com.xzg.mall.common.exception.YamiShopBindException;
+import com.xzg.mall.common.exception.XzgShopBindException;
 import com.xzg.mall.common.util.Arith;
 import com.xzg.mall.dao.OrderMapper;
 import com.xzg.mall.dao.OrderSettlementMapper;
@@ -105,11 +95,11 @@ public class PayServiceImpl implements PayService {
 
         // 订单已支付
         if (settlement.getPayStatus() == 1) {
-            throw new YamiShopBindException("订单已支付");
+            throw new XzgShopBindException("订单已支付");
         }
         // 修改订单结算信息
         if (orderSettlementMapper.updateToPay(payNo, settlement.getVersion()) < 1) {
-            throw new YamiShopBindException("结算信息已更改");
+            throw new XzgShopBindException("结算信息已更改");
         }
 
 

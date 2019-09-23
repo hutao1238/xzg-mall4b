@@ -1,13 +1,3 @@
-/*
- * Copyright (c) 2018-2999 广州亚米信息科技有限公司 All rights reserved.
- *
- * https://www.gz-yami.com/
- *
- * 未经允许，不可做商业用途！
- *
- * 版权所有，侵权必究！
- */
-
 package com.xzg.mall.admin.controller;
 
 import java.util.Objects;
@@ -31,7 +21,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.xzg.mall.bean.enums.ProdPropRule;
 import com.xzg.mall.bean.model.ProdProp;
-import com.xzg.mall.common.exception.YamiShopBindException;
+import com.xzg.mall.common.exception.XzgShopBindException;
 import com.xzg.mall.service.ProdPropService;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 
@@ -88,7 +78,7 @@ public class AttributeController {
 	public ResponseEntity<Void> update(@Valid ProdProp prodProp){
 		ProdProp dbProdProp = prodPropService.getById(prodProp.getPropId());
 		if (!Objects.equals(dbProdProp.getShopId(), SecurityUtils.getSysUser().getShopId())) {
-			throw new YamiShopBindException("没有权限获取该商品规格信息");
+			throw new XzgShopBindException("没有权限获取该商品规格信息");
 		}
 		prodProp.setRule(ProdPropRule.ATTRIBUTE.value());
 		prodProp.setShopId(SecurityUtils.getSysUser().getShopId());

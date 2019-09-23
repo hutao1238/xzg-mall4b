@@ -1,13 +1,3 @@
-/*
- * Copyright (c) 2018-2999 广州亚米信息科技有限公司 All rights reserved.
- *
- * https://www.gz-yami.com/
- *
- * 未经允许，不可做商业用途！
- *
- * 版权所有，侵权必究！
- */
-
 package com.xzg.mall.api.controller;
 
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
@@ -16,7 +6,7 @@ import com.xzg.mall.bean.app.dto.ProductDto;
 import com.xzg.mall.bean.app.dto.UserCollectionDto;
 import com.xzg.mall.bean.model.Product;
 import com.xzg.mall.bean.model.UserCollection;
-import com.xzg.mall.common.exception.YamiShopBindException;
+import com.xzg.mall.common.exception.XzgShopBindException;
 import com.xzg.mall.common.util.PageParam;
 import com.xzg.mall.security.util.SecurityUtils;
 import com.xzg.mall.service.ProductService;
@@ -52,7 +42,7 @@ public class UserCollectionController {
     public ResponseEntity<Boolean> isCollection(Long prodId) {
         if (productService.count(new LambdaQueryWrapper<Product>()
                 .eq(Product::getProdId, prodId)) < 1) {
-            throw new YamiShopBindException("该商品不存在");
+            throw new XzgShopBindException("该商品不存在");
         }
         return ResponseEntity.ok(userCollectionService.count(new LambdaQueryWrapper<UserCollection>()
                 .eq(UserCollection::getProdId, prodId)
@@ -64,7 +54,7 @@ public class UserCollectionController {
     @ApiImplicitParam(name = "prodId", value = "商品id", required = true, dataType = "Long")
     public ResponseEntity<Void> addOrCancel(@RequestBody Long prodId) {
         if (Objects.isNull(productService.getProductByProdId(prodId))) {
-            throw new YamiShopBindException("该商品不存在");
+            throw new XzgShopBindException("该商品不存在");
         }
         String userId = SecurityUtils.getUser().getUserId();
         if (userCollectionService.count(new LambdaQueryWrapper<UserCollection>()

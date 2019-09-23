@@ -1,13 +1,3 @@
-/*
- * Copyright (c) 2018-2999 广州亚米信息科技有限公司 All rights reserved.
- *
- * https://www.gz-yami.com/
- *
- * 未经允许，不可做商业用途！
- *
- * 版权所有，侵权必究！
- */
-
 package com.xzg.mall.api.controller;
 
 import java.util.*;
@@ -21,7 +11,7 @@ import com.xzg.mall.bean.app.param.SubmitOrderParam;
 import com.xzg.mall.bean.event.ConfirmOrderEvent;
 import com.xzg.mall.bean.model.Order;
 import com.xzg.mall.bean.model.UserAddr;
-import com.xzg.mall.common.exception.YamiShopBindException;
+import com.xzg.mall.common.exception.XzgShopBindException;
 import com.xzg.mall.common.util.Arith;
 import com.xzg.mall.service.*;
 import com.xzg.mall.security.util.SecurityUtils;
@@ -76,7 +66,7 @@ public class OrderController {
         List<ShopCartItemDto> shopCartItems = basketService.getShopCartItemsByOrderItems(orderParam.getBasketIds(),orderParam.getOrderItem(),userId);
 
         if (CollectionUtil.isEmpty(shopCartItems)) {
-            throw new YamiShopBindException("请选择您需要的商品加入购物车");
+            throw new XzgShopBindException("请选择您需要的商品加入购物车");
         }
 
         // 根据店铺组装购车中的商品信息，返回每个店铺中的购物车商品信息
@@ -145,7 +135,7 @@ public class OrderController {
         String userId = SecurityUtils.getUser().getUserId();
         ShopCartOrderMergerDto mergerOrder = orderService.getConfirmOrderCache(userId);
         if (mergerOrder == null) {
-            throw new YamiShopBindException("订单已过期，请重新下单");
+            throw new XzgShopBindException("订单已过期，请重新下单");
         }
 
         List<OrderShopParam> orderShopParams = submitOrderParam.getOrderShopParam();

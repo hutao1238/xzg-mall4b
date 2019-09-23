@@ -1,13 +1,3 @@
-/*
- * Copyright (c) 2018-2999 广州亚米信息科技有限公司 All rights reserved.
- *
- * https://www.gz-yami.com/
- *
- * 未经允许，不可做商业用途！
- *
- * 版权所有，侵权必究！
- */
-
 package com.xzg.mall.sys.controller;
 
 import java.util.Collection;
@@ -39,7 +29,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 
 import com.xzg.mall.common.annotation.SysLog;
-import com.xzg.mall.common.exception.YamiShopBindException;
+import com.xzg.mall.common.exception.XzgShopBindException;
 
 import cn.hutool.core.util.StrUtil;
 import io.swagger.annotations.ApiOperation;
@@ -178,11 +168,11 @@ public class SysMenuController{
 
 		if(menu.getType() == MenuType.MENU.getValue()){
 			if(StrUtil.isBlank(menu.getUrl())){
-				throw new YamiShopBindException("菜单URL不能为空");
+				throw new XzgShopBindException("菜单URL不能为空");
 			}
 		}
 		if(Objects.equals(menu.getMenuId(), menu.getParentId())){
-			throw new YamiShopBindException("自己不能是自己的上级");
+			throw new XzgShopBindException("自己不能是自己的上级");
 		}
 
 		//上级菜单类型
@@ -196,7 +186,7 @@ public class SysMenuController{
 		if(menu.getType() == MenuType.CATALOG.getValue() ||
 				menu.getType() == MenuType.MENU.getValue()){
 			if(parentType != MenuType.CATALOG.getValue()){
-				throw new YamiShopBindException("上级菜单只能为目录类型");
+				throw new XzgShopBindException("上级菜单只能为目录类型");
 			}
 			return ;
 		}
@@ -204,7 +194,7 @@ public class SysMenuController{
 		//按钮
 		if(menu.getType() == MenuType.BUTTON.getValue()){
 			if(parentType != MenuType.MENU.getValue()){
-				throw new YamiShopBindException("上级菜单只能为菜单类型");
+				throw new XzgShopBindException("上级菜单只能为菜单类型");
 			}
 		}
 	}

@@ -1,13 +1,3 @@
-/*
- * Copyright (c) 2018-2999 广州亚米信息科技有限公司 All rights reserved.
- *
- * https://www.gz-yami.com/
- *
- * 未经允许，不可做商业用途！
- *
- * 版权所有，侵权必究！
- */
-
 package com.xzg.mall.api.security;
 
 import cn.hutool.core.util.IdUtil;
@@ -21,8 +11,8 @@ import com.xzg.mall.security.dao.AppConnectMapper;
 import com.xzg.mall.security.enums.App;
 import com.xzg.mall.security.exception.UsernameNotFoundExceptionBase;
 import com.xzg.mall.security.model.AppConnect;
-import com.xzg.mall.security.service.YamiUser;
-import com.xzg.mall.security.service.YamiUserDetailsService;
+import com.xzg.mall.security.service.XzgUser;
+import com.xzg.mall.security.service.XzgUserDetailsService;
 import lombok.AllArgsConstructor;
 import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
@@ -36,12 +26,12 @@ import java.util.*;
 /**
  * 用户详细信息
  *
- * @author
+ * @author hutao
  */
 @Slf4j
 @Service
 @AllArgsConstructor
-public class YamiUserServiceImpl implements YamiUserDetailsService {
+public class XzgUserServiceImpl implements XzgUserDetailsService {
 
 	private final UserMapper userMapper;
 
@@ -52,7 +42,7 @@ public class YamiUserServiceImpl implements YamiUserDetailsService {
 
 	@Override
 	@SneakyThrows
-	public YamiUser loadUserByUsername(String username) {
+	public XzgUser loadUserByUsername(String username) {
 		if (StrUtil.isBlank(username) || !username.contains(StrUtil.COLON) ) {
 			throw new UsernameNotFoundExceptionBase("无法获取用户信息");
 		}
@@ -71,13 +61,13 @@ public class YamiUserServiceImpl implements YamiUserDetailsService {
 	 * @throws UsernameNotFoundExceptionBase
 	 */
 	@Override
-	public YamiUser loadUserByAppIdAndBizUserId(App app, String bizUserId) {
+	public XzgUser loadUserByAppIdAndBizUserId(App app, String bizUserId) {
 
 		String cacheKey = app.value() + StrUtil.COLON + bizUserId;
 
-		YamiUser yamiUser = cacheManagerUtil.getCache("yami_user", cacheKey);
-		if (yamiUser != null) {
-			return yamiUser;
+		XzgUser xzgUser = cacheManagerUtil.getCache("xzg_user", cacheKey);
+		if (xzgUser != null) {
+			return xzgUser;
 		}
 
 
@@ -86,19 +76,19 @@ public class YamiUserServiceImpl implements YamiUserDetailsService {
 			throw new UsernameNotFoundExceptionBase("无法获取用户信息");
 		}
 		String name = StrUtil.isBlank(user.getRealName()) ? user.getNickName() : user.getRealName();
-		yamiUser = new YamiUser(user.getUserId(), bizUserId, app.value(), user.getStatus() == 1);
-		yamiUser.setName(name);
-		yamiUser.setPic(user.getPic());
+		xzgUser = new XzgUser(user.getUserId(), bizUserId, app.value(), user.getStatus() == 1);
+		xzgUser.setName(name);
+		xzgUser.setPic(user.getPic());
 
-		cacheManagerUtil.putCache("yami_sys_user",cacheKey, yamiUser);
-		return yamiUser;
+		cacheManagerUtil.putCache("xzg_sys_user",cacheKey, xzgUser);
+		return xzgUser;
 	}
 
 	@Override
 	@Transactional(rollbackFor = Exception.class)
 	@RedisLock(lockName = "insertUser", key = "#appConnect.appId + ':' + #appConnect.bizUserId")
 	@Caching(evict = {
-			@CacheEvict(cacheNames = "yami_user", key = "#appConnect.appId + ':' + #appConnect.bizUserId"),
+			@CacheEvict(cacheNames = "xzg_user", key = "#appConnect.appId + ':' + #appConnect.bizUserId"),
 			@CacheEvict(cacheNames = "AppConnect", key = "#appConnect.appId + ':' + #appConnect.bizUserId")
 	})
 	public void insertUserIfNecessary(AppConnect appConnect) {

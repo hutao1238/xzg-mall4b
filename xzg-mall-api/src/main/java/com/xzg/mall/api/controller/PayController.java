@@ -1,13 +1,3 @@
-/*
- * Copyright (c) 2018-2999 广州亚米信息科技有限公司 All rights reserved.
- *
- * https://www.gz-yami.com/
- *
- * 未经允许，不可做商业用途！
- *
- * 版权所有，侵权必究！
- */
-
 package com.xzg.mall.api.controller;
 
 import com.github.binarywang.wxpay.bean.order.WxPayMpOrderResult;
@@ -19,7 +9,7 @@ import com.xzg.mall.bean.app.param.PayParam;
 import com.xzg.mall.bean.pay.PayInfoDto;
 import com.xzg.mall.common.util.Arith;
 import com.xzg.mall.common.util.IPHelper;
-import com.xzg.mall.security.service.YamiUser;
+import com.xzg.mall.security.service.XzgUser;
 import com.xzg.mall.security.util.SecurityUtils;
 import com.xzg.mall.service.PayService;
 import io.swagger.annotations.Api;
@@ -51,7 +41,7 @@ public class PayController {
     @ApiOperation(value = "根据订单号进行支付", notes = "根据订单号进行支付")
     @SneakyThrows
     public ResponseEntity<WxPayMpOrderResult> pay(@RequestBody PayParam payParam) {
-        YamiUser user = SecurityUtils.getUser();
+        XzgUser user = SecurityUtils.getUser();
         String userId = user.getUserId();
         String openId = user.getBizUserId();
 

@@ -1,13 +1,3 @@
-/*
- * Copyright (c) 2018-2999 广州亚米信息科技有限公司 All rights reserved.
- *
- * https://www.gz-yami.com/
- *
- * 未经允许，不可做商业用途！
- *
- * 版权所有，侵权必究！
- */
-
 package com.xzg.mall.admin.security;
 
 import cn.hutool.core.util.StrUtil;
@@ -17,9 +7,9 @@ import com.xzg.mall.sys.constant.Constant;
 import com.xzg.mall.security.enums.App;
 import com.xzg.mall.security.exception.UsernameNotFoundExceptionBase;
 import com.xzg.mall.security.model.AppConnect;
-import com.xzg.mall.security.service.YamiSysUser;
-import com.xzg.mall.security.service.YamiUser;
-import com.xzg.mall.security.service.YamiUserDetailsService;
+import com.xzg.mall.security.service.XzgSysUser;
+import com.xzg.mall.security.service.XzgUser;
+import com.xzg.mall.security.service.XzgUserDetailsService;
 import com.xzg.mall.sys.dao.SysMenuMapper;
 import com.xzg.mall.sys.dao.SysUserMapper;
 import com.xzg.mall.sys.model.SysMenu;
@@ -27,7 +17,6 @@ import com.xzg.mall.sys.model.SysUser;
 import lombok.AllArgsConstructor;
 import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.AuthorityUtils;
 import org.springframework.stereotype.Service;
@@ -46,7 +35,7 @@ import java.util.stream.Collectors;
 @Slf4j
 @Service
 @AllArgsConstructor
-public class YamiSysUserDetailsServiceImpl implements YamiUserDetailsService {
+public class XzgSysUserDetailsServiceImpl implements XzgUserDetailsService {
 
 	private final SysMenuMapper sysMenuMapper;
 	private final SysUserMapper sysUserMapper;
@@ -61,14 +50,14 @@ public class YamiSysUserDetailsServiceImpl implements YamiUserDetailsService {
 	 */
 	@Override
 	@SneakyThrows
-	public YamiSysUser loadUserByUsername(String username) {
-		YamiSysUser userDetails = cacheManagerUtil.getCache("yami_sys_user", username);
+	public XzgSysUser loadUserByUsername(String username) {
+		XzgSysUser userDetails = cacheManagerUtil.getCache("xzg_sys_user", username);
 		if (userDetails != null) {
 			return userDetails;
 		}
 
 		userDetails = getUserDetails(username);
-		cacheManagerUtil.putCache("yami_sys_user",username, userDetails);
+		cacheManagerUtil.putCache("xzg_sys_user",username, userDetails);
 		return userDetails;
 	}
 
@@ -79,7 +68,7 @@ public class YamiSysUserDetailsServiceImpl implements YamiUserDetailsService {
 	 * @param username 用户名称
 	 * @return
 	 */
-	private YamiSysUser getUserDetails(String username) {
+	private XzgSysUser getUserDetails(String username) {
 		SysUser sysUser = sysUserMapper.selectByUsername(username);
 
 		if (sysUser == null) {
@@ -89,7 +78,7 @@ public class YamiSysUserDetailsServiceImpl implements YamiUserDetailsService {
 		Collection<? extends GrantedAuthority> authorities
 				= AuthorityUtils.createAuthorityList(getUserPermissions(sysUser.getUserId()).toArray(new String[0]));
 		// 构造security用户
-		return new YamiSysUser(sysUser.getUserId(), sysUser.getShopId(), sysUser.getUsername(), sysUser.getPassword(), sysUser.getStatus() == 1,
+		return new XzgSysUser(sysUser.getUserId(), sysUser.getShopId(), sysUser.getUsername(), sysUser.getPassword(), sysUser.getStatus() == 1,
 				true, true, true , authorities);
 	}
 
@@ -118,7 +107,7 @@ public class YamiSysUserDetailsServiceImpl implements YamiUserDetailsService {
 	}
 
 	@Override
-	public YamiUser loadUserByAppIdAndBizUserId(App app, String bizUserId) {
+	public XzgUser loadUserByAppIdAndBizUserId(App app, String bizUserId) {
 		return null;
 	}
 

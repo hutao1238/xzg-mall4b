@@ -1,7 +1,7 @@
 package com.xzg.mall.mp.component;
 
 import cn.hutool.http.HttpUtil;
-import com.xzg.mall.common.exception.YamiShopBindException;
+import com.xzg.mall.common.exception.XzgShopBindException;
 import me.chanjar.weixin.common.WxType;
 import me.chanjar.weixin.common.bean.WxAccessToken;
 import me.chanjar.weixin.common.error.WxError;
@@ -46,7 +46,7 @@ public class WxMpServiceClusterImpl extends WxMpServiceHttpClientImpl {
             }
 
             if (!doingUpdateAccessToken) {
-                throw new YamiShopBindException("服务器繁忙，请稍后再试");
+                throw new XzgShopBindException("服务器繁忙，请稍后再试");
             }
 
             if (!this.getWxMpConfigStorage().isAccessTokenExpired()) {

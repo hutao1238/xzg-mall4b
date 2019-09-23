@@ -1,13 +1,3 @@
-/*
- * Copyright (c) 2018-2999 广州亚米信息科技有限公司 All rights reserved.
- *
- * https://www.gz-yami.com/
- *
- * 未经允许，不可做商业用途！
- *
- * 版权所有，侵权必究！
- */
-
 package com.xzg.mall.admin.security;
 
 
@@ -18,9 +8,9 @@ import com.xzg.mall.security.enums.App;
 import com.xzg.mall.security.exception.BadCredentialsExceptionBase;
 import com.xzg.mall.security.exception.ImageCodeNotMatchExceptionBase;
 import com.xzg.mall.security.exception.UsernameNotFoundExceptionBase;
-import com.xzg.mall.security.exception.BaseYamiAuth2Exception;
+import com.xzg.mall.security.exception.BaseXzgAuth2Exception;
 import com.xzg.mall.security.provider.AbstractUserDetailsAuthenticationProvider;
-import com.xzg.mall.security.service.YamiUserDetailsService;
+import com.xzg.mall.security.service.XzgUserDetailsService;
 import lombok.AllArgsConstructor;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -35,12 +25,12 @@ import org.springframework.stereotype.Component;
 @AllArgsConstructor
 public class AdminAuthenticationProvider extends AbstractUserDetailsAuthenticationProvider {
 
-    private final YamiUserDetailsService yamiUserDetailsService;
+    private final XzgUserDetailsService xzgUserDetailsService;
 
     private final PasswordEncoder passwordEncoder;
 
     @Override
-    protected UserDetails retrieveUser(String username, Authentication authentication) throws BaseYamiAuth2Exception {
+    protected UserDetails retrieveUser(String username, Authentication authentication) throws BaseXzgAuth2Exception {
 
         AdminAuthenticationToken adminAuthenticationToken = (AdminAuthenticationToken) authentication;
 
@@ -56,7 +46,7 @@ public class AdminAuthenticationProvider extends AbstractUserDetailsAuthenticati
 
         UserDetails user;
         try {
-            user = yamiUserDetailsService.loadUserByUsername(username);
+            user = xzgUserDetailsService.loadUserByUsername(username);
         } catch (UsernameNotFoundExceptionBase var6) {
             throw new UsernameNotFoundExceptionBase("账号或密码不正确");
         }

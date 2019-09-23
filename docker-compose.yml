@@ -1,55 +1,55 @@
 version: '3'
 services:
-  mall4j-mysql:
+  xzg-mall-mysql:
     build:
       context: ./
       dockerfile: ./db/Dockerfile
     environment:
       MYSQL_ROOT_PASSWORD: root
     restart: always
-    container_name: mall4j-mysql
-    image: mall4j-mysql
+    container_name: xzg-mall-mysql
+    image: xzg-mall-mysql
     ports:
       - 3306:3306
     volumes:
-      - ./mall4j-mysql:/var/lib/mysql
+      - ./xzg-mall-mysql:/var/lib/mysql
     command: --lower_case_table_names=1
 
-  mall4j-redis:
+  xzg-mall-redis:
     image: redis:5.0.4
     restart: always
-    container_name: mall4j-redis
+    container_name: xzg-mall-redis
     ports:
       - 6379:6379
 
-  mall4j-admin:
+  xzg-mall-admin:
     build:
       context: ./
-      dockerfile: ./yami-shop-admin/Dockerfile
+      dockerfile: ./xzg-mall-admin/Dockerfile
     restart: always
-    container_name: mall4j-admin
-    image: mall4j-admin
+    container_name: xzg-mall-admin
+    image: xzg-mall-admin
     ports:
       - 8085:8085
     depends_on:
-      - mall4j-redis
-      - mall4j-mysql
+      - xzg-mall-redis
+      - xzg-mall-mysql
     links:
-      - "mall4j-redis"
-      - "mall4j-mysql"
+      - "xzg-mall-redis"
+      - "xzg-mall-mysql"
 
-  mall4j-api:
+  xzg-mall-api:
     build:
       context: ./
-      dockerfile: ./yami-shop-api/Dockerfile
+      dockerfile: ./xzg-mall-api/Dockerfile
     restart: always
-    container_name: mall4j-api
-    image: mall4j-api
+    container_name: xzg-mall-api
+    image: xzg-mall-api
     ports:
       - 8086:8086
     depends_on:
-      - mall4j-redis
-      - mall4j-mysql
+      - xzg-mall-redis
+      - xzg-mall-mysql
     links:
-      - "mall4j-redis"
-      - "mall4j-mysql"
+      - "xzg-mall-redis"
+      - "xzg-mall-mysql"

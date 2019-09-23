@@ -1,13 +1,3 @@
-/*
- * Copyright (c) 2018-2999 广州亚米信息科技有限公司 All rights reserved.
- *
- * https://www.gz-yami.com/
- *
- * 未经允许，不可做商业用途！
- *
- * 版权所有，侵权必究！
- */
-
 package com.xzg.mall.admin.controller;
 
 import cn.hutool.core.collection.CollectionUtil;
@@ -18,7 +8,7 @@ import com.xzg.mall.common.util.PageParam;
 import com.xzg.mall.bean.model.Product;
 import com.xzg.mall.bean.model.Sku;
 import com.xzg.mall.bean.param.ProductParam;
-import com.xzg.mall.common.exception.YamiShopBindException;
+import com.xzg.mall.common.exception.XzgShopBindException;
 import com.xzg.mall.common.util.Json;
 import com.xzg.mall.security.util.SecurityUtils;
 import com.xzg.mall.service.BasketService;
@@ -85,7 +75,7 @@ public class ProductController {
     public ResponseEntity<Product> info(@PathVariable("prodId") Long prodId) {
         Product prod = productService.getProductByProdId(prodId);
         if (!Objects.equals(prod.getShopId(), SecurityUtils.getSysUser().getShopId())) {
-            throw new YamiShopBindException("没有权限获取该商品规格信息");
+            throw new XzgShopBindException("没有权限获取该商品规格信息");
         }
         List<Sku> skuList = skuService.listByProdId(prodId);
         prod.setSkuList(skuList);
@@ -161,7 +151,7 @@ public class ProductController {
     public ResponseEntity<Void> delete(@PathVariable("prodId") Long prodId) {
         Product dbProduct = productService.getProductByProdId(prodId);
         if (!Objects.equals(dbProduct.getShopId(), SecurityUtils.getSysUser().getShopId())) {
-            throw new YamiShopBindException("无法获取非本店铺商品信息");
+            throw new XzgShopBindException("无法获取非本店铺商品信息");
         }
         List<Sku> dbSkus = skuService.listByProdId(dbProduct.getProdId());
         // 删除商品
@@ -206,14 +196,14 @@ public class ProductController {
 
     private void checkParam(ProductParam productParam) {
         if (CollectionUtil.isEmpty(productParam.getTagList())) {
-            throw new YamiShopBindException("请选择产品分组");
+            throw new XzgShopBindException("请选择产品分组");
         }
 
         Product.DeliveryModeVO deliveryMode = productParam.getDeliveryModeVo();
         boolean hasDeliverMode = deliveryMode != null
                 && (deliveryMode.getHasShopDelivery() || deliveryMode.getHasUserPickUp());
         if (!hasDeliverMode) {
-            throw new YamiShopBindException("请选择配送方式");
+            throw new XzgShopBindException("请选择配送方式");
         }
         List<Sku> skuList = productParam.getSkuList();
         boolean isAllUnUse = true;
@@ -223,7 +213,7 @@ public class ProductController {
             }
         }
         if (isAllUnUse) {
-            throw new YamiShopBindException("至少要启用一种商品规格");
+            throw new XzgShopBindException("至少要启用一种商品规格");
         }
     }
 }

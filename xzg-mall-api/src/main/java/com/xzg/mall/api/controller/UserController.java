@@ -1,13 +1,3 @@
-/*
- * Copyright (c) 2018-2999 广州亚米信息科技有限公司 All rights reserved.
- *
- * https://www.gz-yami.com/
- *
- * 未经允许，不可做商业用途！
- *
- * 版权所有，侵权必究！
- */
-
 package com.xzg.mall.api.controller;
 
 import cn.hutool.core.util.StrUtil;
@@ -65,7 +55,7 @@ public class UserController {
     	user.setNickName(EmojiUtil.toAlias(userInfoParam.getNickName()));
     	userService.updateById(user);
 		String cacheKey = App.MINI.value() + StrUtil.COLON + SecurityUtils.getUser().getBizUserId();
-		cacheManagerUtil.evictCache("yami_user", cacheKey);
+		cacheManagerUtil.evictCache("xzg_user", cacheKey);
         return ResponseEntity.ok(null);
     }
 }

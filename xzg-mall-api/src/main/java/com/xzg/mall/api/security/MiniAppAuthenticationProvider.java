@@ -1,15 +1,4 @@
-/*
- * Copyright (c) 2018-2999 广州亚米信息科技有限公司 All rights reserved.
- *
- * https://www.gz-yami.com/
- *
- * 未经允许，不可做商业用途！
- *
- * 版权所有，侵权必究！
- */
-
 package com.xzg.mall.api.security;
-
 
 import cn.binarywang.wx.miniapp.api.WxMaService;
 import cn.binarywang.wx.miniapp.bean.WxMaJscode2SessionResult;
@@ -19,8 +8,8 @@ import com.xzg.mall.security.exception.UsernameNotFoundExceptionBase;
 import com.xzg.mall.security.exception.WxErrorExceptionBase;
 import com.xzg.mall.security.model.AppConnect;
 import com.xzg.mall.security.provider.AbstractUserDetailsAuthenticationProvider;
-import com.xzg.mall.security.service.YamiUser;
-import com.xzg.mall.security.service.YamiUserDetailsService;
+import com.xzg.mall.security.service.XzgUser;
+import com.xzg.mall.security.service.XzgUserDetailsService;
 import com.xzg.mall.security.token.MyAuthenticationToken;
 import lombok.AllArgsConstructor;
 import me.chanjar.weixin.common.error.WxErrorException;
@@ -31,13 +20,13 @@ import org.springframework.stereotype.Component;
 
 /**
  * 小程序登陆
- * @author LGH
+ * @author hutao
  */
 @Component
 @AllArgsConstructor
 public class MiniAppAuthenticationProvider extends AbstractUserDetailsAuthenticationProvider {
 
-    private final YamiUserDetailsService yamiUserDetailsService;
+    private final XzgUserDetailsService xzgUserDetailsService;
 
     private final WxMaService wxMaService;
 
@@ -50,10 +39,10 @@ public class MiniAppAuthenticationProvider extends AbstractUserDetailsAuthentica
 
     @Override
     protected UserDetails retrieveUser(String code, Authentication authentication) throws AuthenticationException {
-        YamiUser loadedUser = null;
+        XzgUser loadedUser = null;
         // 如果使用debugger 模式，则返回debugger的用户
         if (BooleanUtil.isTrue(((MyAuthenticationToken)authentication).getDebugger())) {
-            loadedUser = new YamiUser("1" , "debuggerOpenId1" ,  this.getAppInfo().value(), true);
+            loadedUser = new XzgUser("1" , "debuggerOpenId1" ,  this.getAppInfo().value(), true);
             loadedUser.setDebugger(true);
             return loadedUser;
         }
@@ -66,7 +55,7 @@ public class MiniAppAuthenticationProvider extends AbstractUserDetailsAuthentica
 
             session = wxMaService.getUserService().getSessionInfo(code);
 
-            loadedUser = yamiUserDetailsService.loadUserByAppIdAndBizUserId(this.getAppInfo(),session.getOpenid());
+            loadedUser = xzgUserDetailsService.loadUserByAppIdAndBizUserId(this.getAppInfo(),session.getOpenid());
         } catch (WxErrorException e) {
             throw new WxErrorExceptionBase(e.getMessage());
         } catch (UsernameNotFoundExceptionBase var6) {
@@ -75,11 +64,11 @@ public class MiniAppAuthenticationProvider extends AbstractUserDetailsAuthentica
             }
             appConnect.setBizUserId(session.getOpenid());
             appConnect.setBizUnionid(session.getUnionid());
-            yamiUserDetailsService.insertUserIfNecessary(appConnect);
+            xzgUserDetailsService.insertUserIfNecessary(appConnect);
         }
 
         if (loadedUser == null) {
-            loadedUser = yamiUserDetailsService.loadUserByAppIdAndBizUserId(this.getAppInfo(), appConnect.getBizUserId());
+            loadedUser = xzgUserDetailsService.loadUserByAppIdAndBizUserId(this.getAppInfo(), appConnect.getBizUserId());
         }
         return loadedUser;
     }

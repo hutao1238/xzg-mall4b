@@ -1,13 +1,3 @@
-/*
- * Copyright (c) 2018-2999 广州亚米信息科技有限公司 All rights reserved.
- *
- * https://www.gz-yami.com/
- *
- * 未经允许，不可做商业用途！
- *
- * 版权所有，侵权必究！
- */
-
 package com.xzg.mall.service.impl;
 
 import cn.hutool.core.collection.CollectionUtil;
@@ -26,7 +16,7 @@ import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.xzg.mall.bean.enums.SmsType;
 import com.xzg.mall.bean.model.SmsLog;
 import com.xzg.mall.common.bean.ALiDaYu;
-import com.xzg.mall.common.exception.YamiShopBindException;
+import com.xzg.mall.common.exception.XzgShopBindException;
 import com.xzg.mall.common.util.Json;
 import com.xzg.mall.common.util.RedisUtil;
 import com.xzg.mall.dao.SmsLogMapper;
@@ -95,7 +85,7 @@ public class SmsLogServiceImpl extends ServiceImpl<SmsLogMapper, SmsLog> impleme
                     .eq(SmsLog::getUserId, userId)
                     .eq(SmsLog::getType, smsType.value()));
             if (todaySendSmsNumber >= TODAY_MAX_SEND_VALID_SMS_NUMBER) {
-                throw new YamiShopBindException("今日发送短信验证码次数已达到上限");
+                throw new XzgShopBindException("今日发送短信验证码次数已达到上限");
             }
 
             // 将上一条验证码失效
@@ -115,7 +105,7 @@ public class SmsLogServiceImpl extends ServiceImpl<SmsLogMapper, SmsLog> impleme
         try {
             this.sendSms(mobile, smsType.getTemplateCode(), params);
         } catch (ClientException e) {
-            throw new YamiShopBindException("发送短信失败，请稍后再试");
+            throw new XzgShopBindException("发送短信失败，请稍后再试");
         }
 
 
@@ -130,7 +120,7 @@ public class SmsLogServiceImpl extends ServiceImpl<SmsLogMapper, SmsLog> impleme
             RedisUtil.expire(CHECK_VALID_CODE_NUM_PREFIX, 1800);
         }
         if (checkValidCodeNum >= TIMES_CHECK_VALID_CODE_NUM) {
-            throw new YamiShopBindException("验证码校验过频繁，请稍后再试");
+            throw new XzgShopBindException("验证码校验过频繁，请稍后再试");
         }
         SmsLog sms = new SmsLog();
         sms.setUserPhone(mobile);
@@ -188,7 +178,7 @@ public class SmsLogServiceImpl extends ServiceImpl<SmsLogMapper, SmsLog> impleme
         SendSmsResponse sendSmsResponse = acsClient.getAcsResponse(request);
         log.debug(Json.toJsonString(sendSmsResponse));
         if (sendSmsResponse.getCode() == null || !SEND_SMS_SUCCESS_FLAG.equals(sendSmsResponse.getCode())) {
-            throw new YamiShopBindException("发送短信失败，请稍后再试:" + sendSmsResponse.getMessage());
+            throw new XzgShopBindException("发送短信失败，请稍后再试:" + sendSmsResponse.getMessage());
         }
     }
 

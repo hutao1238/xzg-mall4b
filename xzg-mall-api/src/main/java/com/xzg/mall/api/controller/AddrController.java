@@ -1,13 +1,3 @@
-/*
- * Copyright (c) 2018-2999 广州亚米信息科技有限公司 All rights reserved.
- *
- * https://www.gz-yami.com/
- *
- * 未经允许，不可做商业用途！
- *
- * 版权所有，侵权必究！
- */
-
 package com.xzg.mall.api.controller;
 
 import java.util.Date;
@@ -19,7 +9,7 @@ import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.xzg.mall.bean.app.dto.UserAddrDto;
 import com.xzg.mall.bean.app.param.AddrParam;
 import com.xzg.mall.bean.model.UserAddr;
-import com.xzg.mall.common.exception.YamiShopBindException;
+import com.xzg.mall.common.exception.XzgShopBindException;
 import com.xzg.mall.security.util.SecurityUtils;
 import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -159,7 +149,7 @@ public class AddrController {
         String userId = SecurityUtils.getUser().getUserId();
         UserAddr userAddr = userAddrService.getUserAddrByUserId(addrId, userId);
         if (userAddr == null) {
-            throw new YamiShopBindException("该地址已被删除");
+            throw new XzgShopBindException("该地址已被删除");
         }
         return ResponseEntity.ok(mapperFacade.map(userAddr, UserAddrDto.class));
     }

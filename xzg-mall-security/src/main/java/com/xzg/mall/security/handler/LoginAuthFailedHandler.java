@@ -1,17 +1,7 @@
-/*
- * Copyright (c) 2018-2999 广州亚米信息科技有限公司 All rights reserved.
- *
- * https://www.gz-yami.com/
- *
- * 未经允许，不可做商业用途！
- *
- * 版权所有，侵权必究！
- */
-
 package com.xzg.mall.security.handler;
 
 import cn.hutool.core.util.CharsetUtil;
-import com.xzg.mall.security.exception.BaseYamiAuth2Exception;
+import com.xzg.mall.security.exception.BaseXzgAuth2Exception;
 import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.MediaType;
@@ -38,11 +28,11 @@ public class LoginAuthFailedHandler implements AuthenticationFailureHandler {
     public void onAuthenticationFailure(HttpServletRequest request,
                                         HttpServletResponse response, AuthenticationException exception) {
 
-        if (!(exception instanceof BaseYamiAuth2Exception)) {
+        if (!(exception instanceof BaseXzgAuth2Exception)) {
             return;
         }
 
-        BaseYamiAuth2Exception auth2Exception = (BaseYamiAuth2Exception) exception;
+        BaseXzgAuth2Exception auth2Exception = (BaseXzgAuth2Exception) exception;
 
         response.setCharacterEncoding(CharsetUtil.UTF_8);
         response.setContentType(MediaType.APPLICATION_JSON_UTF8_VALUE);

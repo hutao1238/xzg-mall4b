@@ -1,13 +1,3 @@
-/*
- * Copyright (c) 2018-2999 广州亚米信息科技有限公司 All rights reserved.
- *
- * https://www.gz-yami.com/
- *
- * 未经允许，不可做商业用途！
- *
- * 版权所有，侵权必究！
- */
-
 package com.xzg.mall.service.impl;
 
 import cn.hutool.core.collection.CollectionUtil;
@@ -40,7 +30,7 @@ import java.util.*;
 import java.util.stream.Collectors;
 
 /**
- * @author lgh on 2018/10/18.
+ * @author hutao on 2018/10/18.
  */
 @Service
 @AllArgsConstructor

@@ -1,13 +1,3 @@
-/*
- * Copyright (c) 2018-2999 广州亚米信息科技有限公司 All rights reserved.
- *
- * https://www.gz-yami.com/
- *
- * 未经允许，不可做商业用途！
- *
- * 版权所有，侵权必究！
- */
-
 package com.xzg.mall.security.provider;
 
 
@@ -16,8 +6,8 @@ import cn.hutool.core.util.BooleanUtil;
 import cn.hutool.core.util.StrUtil;
 import cn.hutool.extra.emoji.EmojiUtil;
 import com.xzg.mall.security.model.AppConnect;
-import com.xzg.mall.security.service.YamiUser;
-import com.xzg.mall.security.service.YamiUserDetailsService;
+import com.xzg.mall.security.service.XzgUser;
+import com.xzg.mall.security.service.XzgUserDetailsService;
 import com.xzg.mall.security.token.MpAuthenticationToken;
 import com.xzg.mall.security.token.MyAuthenticationToken;
 import com.xzg.mall.security.enums.App;
@@ -40,7 +30,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 @AllArgsConstructor
 public class MpAuthenticationProvider extends AbstractUserDetailsAuthenticationProvider {
 
-    private final YamiUserDetailsService yamiUserDetailsService;
+    private final XzgUserDetailsService xzgUserDetailsService;
 
     private final WxMpService wxMpService;
 
@@ -55,10 +45,10 @@ public class MpAuthenticationProvider extends AbstractUserDetailsAuthenticationP
 
     @Override
     protected UserDetails retrieveUser(String code, Authentication authentication) throws AuthenticationException {
-        YamiUser loadedUser = null;
+        XzgUser loadedUser = null;
         // 如果使用debugger 模式，则返回debugger的用户
         if (BooleanUtil.isTrue(((MyAuthenticationToken)authentication).getDebugger())) {
-            loadedUser = new YamiUser("1" , "debuggerOpenId" ,  this.getAppInfo().value(), true);
+            loadedUser = new XzgUser("1" , "debuggerOpenId" ,  this.getAppInfo().value(), true);
             loadedUser.setDebugger(true);
             return loadedUser;
         }
@@ -71,7 +61,7 @@ public class MpAuthenticationProvider extends AbstractUserDetailsAuthenticationP
         try {
 
             wxMpOAuth2AccessToken = wxMpService.oauth2getAccessToken(code);
-            loadedUser = yamiUserDetailsService.loadUserByAppIdAndBizUserId(this.getAppInfo(),wxMpOAuth2AccessToken.getOpenId());
+            loadedUser = xzgUserDetailsService.loadUserByAppIdAndBizUserId(this.getAppInfo(),wxMpOAuth2AccessToken.getOpenId());
 
         } catch (WxErrorException e) {
             throw new WxErrorExceptionBase(e.getMessage());
@@ -86,12 +76,12 @@ public class MpAuthenticationProvider extends AbstractUserDetailsAuthenticationP
             appConnect.setImageUrl(wxMpUser.getHeadImgUrl());
             appConnect.setBizUserId(wxMpUser.getOpenId());
             appConnect.setBizUnionid(wxMpUser.getUnionId());
-            yamiUserDetailsService.insertUserIfNecessary(appConnect);
+            xzgUserDetailsService.insertUserIfNecessary(appConnect);
 
         }
 
         if (loadedUser == null) {
-            loadedUser = yamiUserDetailsService.loadUserByAppIdAndBizUserId(this.getAppInfo(), appConnect.getBizUserId());
+            loadedUser = xzgUserDetailsService.loadUserByAppIdAndBizUserId(this.getAppInfo(), appConnect.getBizUserId());
         }
         return loadedUser;
     }

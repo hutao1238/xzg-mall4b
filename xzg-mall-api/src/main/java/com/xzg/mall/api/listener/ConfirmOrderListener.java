@@ -1,13 +1,3 @@
-/*
- * Copyright (c) 2018-2999 广州亚米信息科技有限公司 All rights reserved.
- *
- * https://www.gz-yami.com/
- *
- * 未经允许，不可做商业用途！
- *
- * 版权所有，侵权必究！
- */
-
 package com.xzg.mall.api.listener;
 
 import com.xzg.mall.bean.app.dto.ShopCartItemDto;
@@ -18,7 +8,7 @@ import com.xzg.mall.bean.model.Product;
 import com.xzg.mall.bean.model.Sku;
 import com.xzg.mall.bean.model.UserAddr;
 import com.xzg.mall.bean.order.ConfirmOrderOrder;
-import com.xzg.mall.common.exception.YamiShopBindException;
+import com.xzg.mall.common.exception.XzgShopBindException;
 import com.xzg.mall.common.util.Arith;
 import com.xzg.mall.security.util.SecurityUtils;
 import com.xzg.mall.service.ProductService;
@@ -26,14 +16,13 @@ import com.xzg.mall.service.SkuService;
 import com.xzg.mall.service.TransportManagerService;
 import com.xzg.mall.service.UserAddrService;
 import lombok.AllArgsConstructor;
-import ma.glasnost.orika.MapperFacade;
 import org.springframework.context.event.EventListener;
 import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
 
 /**
  * 确认订单信息时的默认操作
- * @author LGH
+ * @author hutao
  */
 @Component("defaultConfirmOrderListener")
 @AllArgsConstructor
@@ -76,10 +65,10 @@ public class ConfirmOrderListener {
             // 获取sku信息
             Sku sku = skuService.getSkuBySkuId(shopCartItem.getSkuId());
             if (product == null || sku == null) {
-                throw new YamiShopBindException("购物车包含无法识别的商品");
+                throw new XzgShopBindException("购物车包含无法识别的商品");
             }
             if (product.getStatus() != 1 || sku.getStatus() != 1) {
-                throw new YamiShopBindException("商品[" + sku.getProdName() + "]已下架");
+                throw new XzgShopBindException("商品[" + sku.getProdName() + "]已下架");
             }
 
             totalCount = shopCartItem.getProdCount() + totalCount;

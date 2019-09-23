@@ -1,21 +1,10 @@
-/*
- * Copyright (c) 2018-2999 广州亚米信息科技有限公司 All rights reserved.
- *
- * https://www.gz-yami.com/
- *
- * 未经允许，不可做商业用途！
- *
- * 版权所有，侵权必究！
- */
-
 package com.xzg.mall.api.security;
 
-
 import com.xzg.mall.security.constants.SecurityConstants;
-import com.xzg.mall.security.service.YamiClientDetailsService;
-import com.xzg.mall.security.service.YamiUser;
-import com.xzg.mall.security.service.YamiUserDetailsService;
-import com.xzg.mall.security.util.YamiTokenServices;
+import com.xzg.mall.security.service.XzgClientDetailsService;
+import com.xzg.mall.security.service.XzgUser;
+import com.xzg.mall.security.service.XzgUserDetailsService;
+import com.xzg.mall.security.util.XzgTokenServices;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -25,7 +14,6 @@ import org.springframework.data.redis.connection.RedisConnectionFactory;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.ProviderManager;
 import org.springframework.security.core.userdetails.UserDetailsByNameServiceWrapper;
-import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.oauth2.common.DefaultOAuth2AccessToken;
 import org.springframework.security.oauth2.config.annotation.configurers.ClientDetailsServiceConfigurer;
 import org.springframework.security.oauth2.config.annotation.web.configuration.AuthorizationServerConfigurerAdapter;
@@ -43,16 +31,13 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
 
-/**
- *
- */
 @Configuration
 //@Order(2)
 @EnableAuthorizationServer
 public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdapter {
 
     @Autowired
-    private YamiUserDetailsService yamiUserDetailsService;
+    private XzgUserDetailsService xzgUserDetailsService;
 
     @Autowired
     private AuthenticationManager authenticationManager;
@@ -68,14 +53,14 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
     @Bean
     public TokenStore tokenStore() {
         RedisTokenStore tokenStore = new RedisTokenStore(redisConnectionFactory);
-        tokenStore.setPrefix(SecurityConstants.YAMI_PREFIX + SecurityConstants.OAUTH_PREFIX);
+        tokenStore.setPrefix(SecurityConstants.XZG_PREFIX + SecurityConstants.OAUTH_PREFIX);
         return tokenStore;
     }
 
     @Override
     public void configure(ClientDetailsServiceConfigurer clients) throws Exception {
         // 使用JdbcClientDetailsService客户端详情服务
-        YamiClientDetailsService clientDetailsService = new YamiClientDetailsService(dataSource);
+        XzgClientDetailsService clientDetailsService = new XzgClientDetailsService(dataSource);
         clientDetailsService.setSelectClientDetailsSql(SecurityConstants.DEFAULT_SELECT_STATEMENT);
         clientDetailsService.setFindClientDetailsSql(SecurityConstants.DEFAULT_FIND_STATEMENT);
         clients.withClientDetails(clientDetailsService);
@@ -89,9 +74,9 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
                 .tokenEnhancer(tokenEnhancer())
                 // refresh_token需要userDetailsService
                 .reuseRefreshTokens(false)
-                .userDetailsService(yamiUserDetailsService);
+                .userDetailsService(xzgUserDetailsService);
         this.endpoints = endpoints;
-        endpoints.tokenServices(yamiTokenServices());
+        endpoints.tokenServices(xzgTokenServices());
     }
 
     @Override
@@ -113,10 +98,10 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
     public TokenEnhancer tokenEnhancer() {
         return (accessToken, authentication) -> {
             Map<String, Object> additionalInfo = new HashMap<>(8);
-            YamiUser yamiUser = (YamiUser) authentication.getUserAuthentication().getPrincipal();
-            additionalInfo.put("userId", yamiUser.getUserId());
-            additionalInfo.put("nickName",yamiUser.getName());
-            additionalInfo.put("pic",yamiUser.getPic());
+            XzgUser xzgUser = (XzgUser) authentication.getUserAuthentication().getPrincipal();
+            additionalInfo.put("userId", xzgUser.getUserId());
+            additionalInfo.put("nickName", xzgUser.getName());
+            additionalInfo.put("pic", xzgUser.getPic());
             ((DefaultOAuth2AccessToken) accessToken).setAdditionalInformation(additionalInfo);
             return accessToken;
         };
@@ -125,8 +110,8 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
     @Primary
     @Bean
     @Lazy
-    public AuthorizationServerTokenServices yamiTokenServices() {
-        YamiTokenServices tokenServices = new YamiTokenServices();
+    public AuthorizationServerTokenServices xzgTokenServices() {
+        XzgTokenServices tokenServices = new XzgTokenServices();
         tokenServices.setTokenStore(tokenStore());
         tokenServices.setSupportRefreshToken(true);//支持刷新token
         tokenServices.setReuseRefreshToken(true);
@@ -136,10 +121,10 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
         return tokenServices;
     }
 
-    private void addUserDetailsService(YamiTokenServices tokenServices) {
+    private void addUserDetailsService(XzgTokenServices tokenServices) {
         PreAuthenticatedAuthenticationProvider provider = new PreAuthenticatedAuthenticationProvider();
         provider.setPreAuthenticatedUserDetailsService(new UserDetailsByNameServiceWrapper<>(
-                yamiUserDetailsService));
+                xzgUserDetailsService));
         tokenServices.setAuthenticationManager(new ProviderManager(Collections.singletonList(provider)));
     }
 

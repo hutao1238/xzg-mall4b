@@ -1,13 +1,3 @@
-/*
- * Copyright (c) 2018-2999 广州亚米信息科技有限公司 All rights reserved.
- *
- * https://www.gz-yami.com/
- *
- * 未经允许，不可做商业用途！
- *
- * 版权所有，侵权必究！
- */
-
 package com.xzg.mall.admin.controller;
 
 import java.util.Arrays;
@@ -15,10 +5,9 @@ import java.util.Objects;
 
 import javax.validation.Valid;
 
-
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
-import com.xzg.mall.common.enums.YamiHttpStatus;
-import com.xzg.mall.common.exception.YamiShopBindException;
+import com.xzg.mall.common.enums.XzgHttpStatus;
+import com.xzg.mall.common.exception.XzgShopBindException;
 import com.xzg.mall.security.util.SecurityUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -32,7 +21,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-
 import com.xzg.mall.common.util.PageParam;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.xzg.mall.bean.model.PickAddr;
@@ -40,11 +28,9 @@ import com.xzg.mall.service.PickAddrService;
 
 import cn.hutool.core.util.StrUtil;
 
-
-
 /**
  *
- * @author lgh on 2018/10/17.
+ * @author hutao on 2018/10/17.
  */
 @RestController
 @RequestMapping("/shop/pickAddr")
@@ -94,7 +80,7 @@ public class PickAddrController {
 	public ResponseEntity<Void> update(@Valid @RequestBody PickAddr pickAddr){
 		PickAddr dbPickAddr = pickAddrService.getById(pickAddr.getAddrId());
 		if (!Objects.equals(dbPickAddr.getShopId(),pickAddr.getShopId())) {
-			throw new YamiShopBindException(YamiHttpStatus.UNAUTHORIZED);
+			throw new XzgShopBindException(XzgHttpStatus.UNAUTHORIZED);
 		}
 		pickAddrService.updateById(pickAddr);
 		return ResponseEntity.ok().build();

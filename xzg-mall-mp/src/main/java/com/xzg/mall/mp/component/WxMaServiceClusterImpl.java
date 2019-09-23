@@ -3,7 +3,7 @@ package com.xzg.mall.mp.component;
 import cn.binarywang.wx.miniapp.api.WxMaService;
 import cn.binarywang.wx.miniapp.api.impl.WxMaServiceImpl;
 import cn.hutool.http.HttpUtil;
-import com.xzg.mall.common.exception.YamiShopBindException;
+import com.xzg.mall.common.exception.XzgShopBindException;
 import lombok.extern.slf4j.Slf4j;
 import me.chanjar.weixin.common.bean.WxAccessToken;
 import me.chanjar.weixin.common.error.WxError;
@@ -45,7 +45,7 @@ public class WxMaServiceClusterImpl extends WxMaServiceImpl {
             }
 
             if (!lockSuccess) {
-                throw new YamiShopBindException("服务器繁忙，请稍后再试");
+                throw new XzgShopBindException("服务器繁忙，请稍后再试");
             }
 
             if (!this.getWxMaConfig().isAccessTokenExpired()) {

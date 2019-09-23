@@ -1,13 +1,3 @@
-/*
- * Copyright (c) 2018-2999 广州亚米信息科技有限公司 All rights reserved.
- *
- * https://www.gz-yami.com/
- *
- * 未经允许，不可做商业用途！
- *
- * 版权所有，侵权必究！
- */
-
 package com.xzg.mall.security.handler;
 
 import cn.hutool.core.map.MapUtil;
@@ -33,7 +23,6 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
 
-
 /**
  * 登录成功，返回oauth token
  *
@@ -45,7 +34,7 @@ public class LoginAuthSuccessHandler implements AuthenticationSuccessHandler {
     private ObjectMapper objectMapper;
     @Autowired
     @Lazy
-    private AuthorizationServerTokenServices yamiTokenServices;
+    private AuthorizationServerTokenServices xzgTokenServices;
 
     /**
      * Called when a user has been successfully authenticated.
@@ -85,7 +74,7 @@ public class LoginAuthSuccessHandler implements AuthenticationSuccessHandler {
 //                oAuth2AccessToken = defaultAuthorizationServerTokenServices.createAccessToken(oAuth2Authentication);
 //            }
 
-            OAuth2AccessToken oAuth2AccessToken = yamiTokenServices.createAccessToken(oAuth2Authentication);
+            OAuth2AccessToken oAuth2AccessToken = xzgTokenServices.createAccessToken(oAuth2Authentication);
             log.info("获取token 成功：{}", oAuth2AccessToken.getValue());
 
             response.setCharacterEncoding(CharsetUtil.UTF_8);

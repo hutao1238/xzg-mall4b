@@ -1,13 +1,3 @@
-/*
- * Copyright (c) 2018-2999 广州亚米信息科技有限公司 All rights reserved.
- *
- * https://www.gz-yami.com/
- *
- * 未经允许，不可做商业用途！
- *
- * 版权所有，侵权必究！
- */
-
 package com.xzg.mall.admin.controller;
 
 import java.io.IOException;
@@ -19,7 +9,7 @@ import javax.servlet.ServletOutputStream;
 import javax.servlet.http.HttpServletResponse;
 
 import com.xzg.mall.bean.param.OrderParam;
-import com.xzg.mall.common.exception.YamiShopBindException;
+import com.xzg.mall.common.exception.XzgShopBindException;
 import com.xzg.mall.security.util.SecurityUtils;
 import com.xzg.mall.service.*;
 import org.apache.poi.ss.usermodel.Sheet;
@@ -94,7 +84,7 @@ public class OrderController {
         Long shopId = SecurityUtils.getSysUser().getShopId();
         Order order = orderService.getOrderByOrderNumber(orderNumber);
         if (!Objects.equal(shopId, order.getShopId())) {
-            throw new YamiShopBindException("您没有权限获取该订单信息");
+            throw new XzgShopBindException("您没有权限获取该订单信息");
         }
         List<OrderItem> orderItems = orderItemService.getOrderItemsByOrderNumber(orderNumber);
         order.setOrderItems(orderItems);
@@ -112,7 +102,7 @@ public class OrderController {
         Long shopId = SecurityUtils.getSysUser().getShopId();
         Order order = orderService.getOrderByOrderNumber(deliveryOrderParam.getOrderNumber());
         if (!Objects.equal(shopId, order.getShopId())) {
-            throw new YamiShopBindException("您没有权限修改该订单信息");
+            throw new XzgShopBindException("您没有权限修改该订单信息");
         }
 
         Order orderParam = new Order();

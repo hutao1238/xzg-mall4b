@@ -1,20 +1,10 @@
-/*
- * Copyright (c) 2018-2999 广州亚米信息科技有限公司 All rights reserved.
- *
- * https://www.gz-yami.com/
- *
- * 未经允许，不可做商业用途！
- *
- * 版权所有，侵权必究！
- */
-
 package com.xzg.mall.security.constants;
 
 public interface SecurityConstants {
     /**
      * 前缀
      */
-    String YAMI_PREFIX = "yami_";
+    String XZG_PREFIX = "xzg_";
 
     /**
      * oauth 相关前缀
@@ -24,7 +14,7 @@ public interface SecurityConstants {
     /**
      * oauth 客户端信息
      */
-    String CLIENT_DETAILS_KEY = "yami_oauth:client:details";
+    String CLIENT_DETAILS_KEY = "xzg_oauth:client:details";
 
     /**
      * sys_oauth_client_details 表的字段，不包括client_id、client_secret

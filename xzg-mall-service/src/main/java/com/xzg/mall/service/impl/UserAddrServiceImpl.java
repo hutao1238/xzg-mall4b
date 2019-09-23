@@ -1,13 +1,3 @@
-/*
- * Copyright (c) 2018-2999 广州亚米信息科技有限公司 All rights reserved.
- *
- * https://www.gz-yami.com/
- *
- * 未经允许，不可做商业用途！
- *
- * 版权所有，侵权必究！
- */
-
 package com.xzg.mall.service.impl;
 
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
@@ -18,7 +8,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.xzg.mall.bean.model.UserAddr;
-import com.xzg.mall.common.exception.YamiShopBindException;
+import com.xzg.mall.common.exception.XzgShopBindException;
 import com.xzg.mall.dao.UserAddrMapper;
 import com.xzg.mall.service.UserAddrService;
 
@@ -39,7 +29,7 @@ public class UserAddrServiceImpl extends ServiceImpl<UserAddrMapper, UserAddr> i
 		userAddrMapper.removeDefaultUserAddr(userId);
 		int setCount = userAddrMapper.setDefaultUserAddr(addrId,userId);
 		if (setCount == 0) {
-			throw new YamiShopBindException("无法修改用户默认地址，请稍后再试");
+			throw new XzgShopBindException("无法修改用户默认地址，请稍后再试");
 		}
 	}
 

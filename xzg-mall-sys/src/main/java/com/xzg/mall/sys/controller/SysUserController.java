@@ -1,13 +1,3 @@
-/*
- * Copyright (c) 2018-2999 广州亚米信息科技有限公司 All rights reserved.
- *
- * https://www.gz-yami.com/
- *
- * 未经允许，不可做商业用途！
- *
- * 版权所有，侵权必究！
- */
-
 package com.xzg.mall.sys.controller;
 
 
@@ -41,7 +31,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.xzg.mall.common.annotation.SysLog;
-import com.xzg.mall.common.exception.YamiShopBindException;
+import com.xzg.mall.common.exception.XzgShopBindException;
 
 import cn.hutool.core.util.ArrayUtil;
 import cn.hutool.core.util.StrUtil;
@@ -113,7 +103,7 @@ public class SysUserController {
 		SysUser user = sysUserService.getSysUserById(userId);
 		user.setUserId(null);
 		if (!Objects.equals(user.getShopId(), SecurityUtils.getSysUser().getShopId())) {
-			throw new YamiShopBindException("没有权限获取该用户信息");
+			throw new XzgShopBindException("没有权限获取该用户信息");
 		}
 		//获取用户所属的角色列表
 		List<Long> roleIdList = sysRoleService.listRoleIdByUserId(userId);
@@ -152,7 +142,7 @@ public class SysUserController {
 		SysUser dbUser = sysUserService.getSysUserById(user.getUserId());
 
 		if (!Objects.equals(dbUser.getShopId(), SecurityUtils.getSysUser().getShopId())) {
-			throw new YamiShopBindException("没有权限修改该用户信息");
+			throw new XzgShopBindException("没有权限修改该用户信息");
 		}
 		SysUser dbUserNameInfo = sysUserService.getByUserName(user.getUsername());
 

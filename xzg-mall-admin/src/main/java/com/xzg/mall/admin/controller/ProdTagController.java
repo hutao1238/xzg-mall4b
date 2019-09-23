@@ -1,13 +1,3 @@
-/*
- * Copyright (c) 2018-2999 广州亚米信息科技有限公司 All rights reserved.
- *
- * https://www.gz-yami.com/
- *
- * 未经允许，不可做商业用途！
- *
- * 版权所有，侵权必究！
- */
-
 package com.xzg.mall.admin.controller;
 
 
@@ -16,7 +6,7 @@ import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.xzg.mall.common.util.PageParam;
 import com.xzg.mall.bean.model.ProdTag;
 import com.xzg.mall.common.annotation.SysLog;
-import com.xzg.mall.common.exception.YamiShopBindException;
+import com.xzg.mall.common.exception.XzgShopBindException;
 import com.xzg.mall.security.util.SecurityUtils;
 import com.xzg.mall.service.ProdTagService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -118,7 +108,7 @@ public class ProdTagController {
     public ResponseEntity<Boolean> removeById(@PathVariable Long id) {
         ProdTag prodTag = prodTagService.getById(id);
         if (prodTag.getIsDefault() != 0) {
-            throw new YamiShopBindException("默认标签不能删除");
+            throw new XzgShopBindException("默认标签不能删除");
         }
         prodTagService.removeProdTag();
         return ResponseEntity.ok(prodTagService.removeById(id));

@@ -1,20 +1,10 @@
-/*
- * Copyright (c) 2018-2999 广州亚米信息科技有限公司 All rights reserved.
- *
- * https://www.gz-yami.com/
- *
- * 未经允许，不可做商业用途！
- *
- * 版权所有，侵权必究！
- */
-
 package com.xzg.mall.quartz.controller;
 
 import javax.validation.Valid;
 
 
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
-import com.xzg.mall.common.exception.YamiShopBindException;
+import com.xzg.mall.common.exception.XzgShopBindException;
 import com.xzg.mall.quartz.model.ScheduleJob;
 import com.xzg.mall.quartz.service.ScheduleJobService;
 import lombok.extern.slf4j.Slf4j;
@@ -80,7 +70,7 @@ public class ScheduleJobController {
 
 		int dbAlikeCount = scheduleJobService.count(new LambdaQueryWrapper<ScheduleJob>().eq(ScheduleJob::getBeanName, scheduleJob.getBeanName()).eq(ScheduleJob::getMethodName, scheduleJob.getMethodName()));
 		if (dbAlikeCount > 0) {
-			throw new YamiShopBindException("定时任务已存在");
+			throw new XzgShopBindException("定时任务已存在");
 		}
 
 		scheduleJobService.saveAndStart(scheduleJob);
@@ -97,7 +87,7 @@ public class ScheduleJobController {
 
 		int dbAlikeCount = scheduleJobService.count(new LambdaQueryWrapper<ScheduleJob>().eq(ScheduleJob::getBeanName, scheduleJob.getBeanName()).eq(ScheduleJob::getMethodName, scheduleJob.getMethodName()).ne(ScheduleJob::getJobId,scheduleJob.getJobId()));
 		if (dbAlikeCount > 0) {
-			throw new YamiShopBindException("定时任务已存在");
+			throw new XzgShopBindException("定时任务已存在");
 		}
 
 		scheduleJobService.updateScheduleJob(scheduleJob);

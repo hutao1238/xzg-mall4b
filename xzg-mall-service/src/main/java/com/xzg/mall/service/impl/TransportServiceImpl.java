@@ -1,13 +1,3 @@
-/*
- * Copyright (c) 2018-2999 广州亚米信息科技有限公司 All rights reserved.
- *
- * https://www.gz-yami.com/
- *
- * 未经允许，不可做商业用途！
- *
- * 版权所有，侵权必究！
- */
-
 package com.xzg.mall.service.impl;
 
 import java.util.ArrayList;
@@ -27,7 +17,7 @@ import com.xzg.mall.bean.model.TranscityFree;
 import com.xzg.mall.bean.model.Transfee;
 import com.xzg.mall.bean.model.TransfeeFree;
 import com.xzg.mall.bean.model.Transport;
-import com.xzg.mall.common.exception.YamiShopBindException;
+import com.xzg.mall.common.exception.XzgShopBindException;
 import com.xzg.mall.dao.TranscityMapper;
 import com.xzg.mall.dao.TransfeeMapper;
 import com.xzg.mall.dao.TransportMapper;
@@ -116,7 +106,7 @@ public class TransportServiceImpl extends ServiceImpl<TransportMapper, Transport
 		for (TransfeeFree transfeeFree : transfeeFrees) {
 			List<Area> cityList = transfeeFree.getFreeCityList();
 			if (CollectionUtil.isEmpty(cityList)) {
-				throw new YamiShopBindException("请选择指定包邮城市");
+				throw new XzgShopBindException("请选择指定包邮城市");
 			}
 			// 当地址不为空时
 			for (Area area : cityList) {
