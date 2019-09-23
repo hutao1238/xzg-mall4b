@@ -36,7 +36,7 @@ public class FileUploadConfig {
      */
     @Bean
     public com.qiniu.storage.Configuration qiniuConfig() {
-        return new com.qiniu.storage.Configuration(Zone.zone2());
+        return new com.qiniu.storage.Configuration(Zone.zone1());
     }
 
     /**

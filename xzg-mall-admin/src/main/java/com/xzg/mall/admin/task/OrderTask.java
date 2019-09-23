@@ -32,7 +32,6 @@ import cn.hutool.core.date.DateUtil;
 @Component("orderTask")
 public class OrderTask {
 
-
     private Logger logger = LoggerFactory.getLogger(getClass());
 
     @Autowired
