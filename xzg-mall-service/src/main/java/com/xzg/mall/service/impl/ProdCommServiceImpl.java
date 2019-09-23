@@ -16,7 +16,7 @@ import org.springframework.stereotype.Service;
 /**
  * 商品评论
  *
- * @author xwc
+ * @author hutao
  * @date 2019-04-19 10:43:57
  */
 @Service

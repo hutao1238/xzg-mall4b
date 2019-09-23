@@ -2,7 +2,7 @@ package com.xzg.mall.bean.enums;
 
 /**
  * 商品规格参数、属性类型
- * @author lgh
+ * @author hutao
  */
 public enum ProdPropRule {
 

@@ -14,7 +14,7 @@ import java.util.List;
 
 /**
  *
- * @author lgh on 2018/11/26.
+ * @author hutao
  */
 @Service
 public class IndexImgServiceImpl extends ServiceImpl<IndexImgMapper, IndexImg> implements IndexImgService {

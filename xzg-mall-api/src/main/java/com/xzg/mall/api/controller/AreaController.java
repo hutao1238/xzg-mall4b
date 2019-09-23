@@ -14,7 +14,7 @@ import io.swagger.annotations.ApiOperation;
 import java.util.List;
 
 /**
- * @author hutao on 2018/10/26.
+ * @author hutao.
  */
 @RestController
 @RequestMapping("/p/area")

@@ -9,7 +9,7 @@ import com.xzg.mall.bean.model.Notice;
 /**
  * 公告管理
  *
- * @author hzm
+ * @author hutao
  * @date 2019-04-18 21:21:40
  */
 public interface NoticeMapper extends BaseMapper<Notice> {

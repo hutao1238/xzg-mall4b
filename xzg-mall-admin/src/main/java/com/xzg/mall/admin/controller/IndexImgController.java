@@ -18,7 +18,7 @@ import java.util.Date;
 import java.util.Objects;
 
 /**
- * @author lgh on 2018/11/26.
+ * @author hutao on 2018/11/26.
  */
 @RestController
 @RequestMapping("/admin/indexImg")

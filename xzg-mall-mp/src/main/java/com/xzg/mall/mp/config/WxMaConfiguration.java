@@ -11,7 +11,7 @@ import org.springframework.context.annotation.Configuration;
 
 /**
  * 微信小程序配置文件
- * @author LGH
+ * @author hutao
  */
 @Configuration
 @AllArgsConstructor

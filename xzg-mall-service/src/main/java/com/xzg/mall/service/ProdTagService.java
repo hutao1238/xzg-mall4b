@@ -9,7 +9,7 @@ import java.util.List;
 /**
  * 商品分组标签
  *
- * @author hzm
+ * @author hutao
  * @date 2019-04-18 10:48:44
  */
 public interface ProdTagService extends IService<ProdTag> {

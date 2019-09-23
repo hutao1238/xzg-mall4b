@@ -31,7 +31,7 @@ import com.xzg.mall.bean.model.HotSearch;
 
 /**
  *
- * @author lgh on 2019/03/27.
+ * @author hutao on 2019/03/27.
  */
 @RestController
 @RequestMapping("/admin/hotSearch")

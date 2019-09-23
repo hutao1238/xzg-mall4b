@@ -13,7 +13,7 @@ import com.xzg.mall.service.DeliveryService;
 
 /**
  *
- * @author lgh on 2018/11/26.
+ * @author hutao on 2018/11/26.
  */
 @RestController
 @RequestMapping("/admin/delivery")

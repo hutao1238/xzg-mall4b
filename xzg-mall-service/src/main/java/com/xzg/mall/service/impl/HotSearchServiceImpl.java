@@ -16,7 +16,7 @@ import java.util.List;
 
 /**
  *
- * @author lgh on 2019/03/27.
+ * @author hutao
  */
 @Service
 public class HotSearchServiceImpl extends ServiceImpl<HotSearchMapper, HotSearch> implements HotSearchService {

@@ -8,7 +8,7 @@ import com.xzg.mall.bean.model.SmsLog;
 
 /**
  *
- * @author lgh on 2018/11/29.
+ * @author hutao
  */
 public interface SmsLogService extends IService<SmsLog> {
 

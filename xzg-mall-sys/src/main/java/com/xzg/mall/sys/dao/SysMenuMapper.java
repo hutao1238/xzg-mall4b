@@ -9,7 +9,7 @@ import java.util.List;
 
 /**
  * 菜单管理
- * @author lgh
+ * @author hutao
  */
 public interface SysMenuMapper extends BaseMapper<SysMenu>{
 	

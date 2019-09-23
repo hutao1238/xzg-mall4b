@@ -6,7 +6,7 @@ import com.xzg.mall.bean.model.Area;
 import java.util.List;
 
 /**
- * @author lgh on 2018/10/26.
+ * @author hutao.
  */
 public interface AreaService extends IService<Area> {
 

@@ -30,7 +30,7 @@ import ma.glasnost.orika.MapperFacade;
 
 /**
  *
- * @author lgh on 2018/08/29.
+ * @author hutao on 2018/08/29.
  */
 @Controller
 @RequestMapping("/shop/shopDetail")

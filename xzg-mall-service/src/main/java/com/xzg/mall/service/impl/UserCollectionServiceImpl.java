@@ -13,7 +13,7 @@ import org.springframework.stereotype.Service;
 /**
  * 用户收藏表
  *
- * @author xwc
+ * @author hutao
  * @date 2019-04-19 16:57:20
  */
 @Service

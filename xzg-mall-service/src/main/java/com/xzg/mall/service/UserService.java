@@ -5,7 +5,7 @@ import com.xzg.mall.bean.model.User;
 
 /**
  *
- * @author lgh on 2018/09/11.
+ * @author hutao
  */
 public interface UserService extends IService<User> {
 

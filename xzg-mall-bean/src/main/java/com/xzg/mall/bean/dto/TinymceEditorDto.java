@@ -2,7 +2,7 @@ package com.xzg.mall.bean.dto;
 
 /**
  * 富文本编辑器 图片上传返回数据
- * @author lgh
+ * @author hutao
  */
 public class TinymceEditorDto {
 

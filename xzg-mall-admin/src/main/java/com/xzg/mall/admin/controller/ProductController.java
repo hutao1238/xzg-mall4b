@@ -31,7 +31,7 @@ import java.util.Objects;
 /**
  * 商品列表、商品发布controller
  *
- * @author lgh
+ * @author hutao
  */
 @Controller
 @RequestMapping("/prod/prod")

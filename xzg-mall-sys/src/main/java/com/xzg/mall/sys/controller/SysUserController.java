@@ -39,7 +39,7 @@ import io.swagger.annotations.ApiOperation;
 
 /**
  * 系统用户
- * @author lgh
+ * @author hutao
  */
 @RestController
 @RequestMapping("/sys/user")

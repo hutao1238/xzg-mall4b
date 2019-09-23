@@ -11,7 +11,7 @@ import com.xzg.mall.service.TransfeeFreeService;
 
 /**
  *
- * @author lgh on 2018/12/20.
+ * @author hutao on 2018/12/20.
  */
 @Service
 public class TransfeeFreeServiceImpl extends ServiceImpl<TransfeeFreeMapper, TransfeeFree> implements TransfeeFreeService {

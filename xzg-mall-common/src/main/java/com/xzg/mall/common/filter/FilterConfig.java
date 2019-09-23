@@ -7,7 +7,7 @@ import org.springframework.context.annotation.Configuration;
 import javax.servlet.DispatcherType;
 
 /**
- * @author lgh
+ * @author hutao
  */
 @Configuration
 public class FilterConfig {

@@ -10,7 +10,7 @@ import org.springframework.stereotype.Component;
 
 /**
  * 带有emoji字符串的json序列化
- * @author LGH
+ * @author hutao
  */
 @Component
 public class EmojiJsonSerializer extends JsonSerializer<String> {

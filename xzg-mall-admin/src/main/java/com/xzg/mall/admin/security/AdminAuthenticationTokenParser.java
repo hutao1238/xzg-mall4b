@@ -8,7 +8,7 @@ import org.springframework.stereotype.Component;
 /**
  * AdminAuthenticationTokenParser
  *
- * @author hanfeng
+ * @author hutao
  * @date 2019-08-21
  */
 @Component

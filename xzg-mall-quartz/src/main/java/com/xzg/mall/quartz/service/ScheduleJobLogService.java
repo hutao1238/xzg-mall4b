@@ -4,7 +4,7 @@ import com.baomidou.mybatisplus.extension.service.IService;
 import com.xzg.mall.quartz.model.ScheduleJobLog;
 
 /**
- * @author lgh
+ * @author hutao
  */
 public interface ScheduleJobLogService extends IService<ScheduleJobLog>{
 

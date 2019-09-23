@@ -39,7 +39,7 @@ import org.springframework.util.Assert;
  * @author Ryan Heaton
  * @author Luke Taylor
  * @author Dave Syer
- * @author LGH
+ * @author hutao
  */
 public class XzgTokenServices implements AuthorizationServerTokenServices, ResourceServerTokenServices,
         ConsumerTokenServices, InitializingBean {

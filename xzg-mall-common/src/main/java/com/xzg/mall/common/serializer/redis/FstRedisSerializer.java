@@ -7,7 +7,7 @@ import org.springframework.lang.Nullable;
 
 /**
  * 使用fst 进行reids的序列化
- * @author LGH
+ * @author hutao
  */
 public class FstRedisSerializer implements RedisSerializer<Object> {
 

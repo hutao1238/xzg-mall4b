@@ -7,7 +7,7 @@ import com.xzg.mall.security.model.AppConnect;
 
 /**
  *
- * @author lgh on 2018/09/07.
+ * @author hutao on 2018/09/07.
  */
 public interface AppConnectService extends IService<AppConnect> {
 

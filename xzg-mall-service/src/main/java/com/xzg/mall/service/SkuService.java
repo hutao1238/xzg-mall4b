@@ -7,7 +7,7 @@ import com.xzg.mall.bean.model.Sku;
 
 /**
  *
- * @author lgh on 2018/09/29.
+ * @author hutao on 2018/09/29.
  */
 public interface SkuService extends IService<Sku> {
 

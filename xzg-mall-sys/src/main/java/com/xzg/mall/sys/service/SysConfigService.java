@@ -6,7 +6,7 @@ import com.xzg.mall.sys.model.SysConfig;
 
 /**
  * 系统配置信息
- * @author lgh
+ * @author hutao
  */
 public interface SysConfigService extends IService<SysConfig>  {
 

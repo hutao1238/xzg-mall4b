@@ -7,7 +7,7 @@ import lombok.Data;
 
 /**
  * 确认收货的事件
- * @author
+ * @author hutao
  */
 @Data
 @AllArgsConstructor

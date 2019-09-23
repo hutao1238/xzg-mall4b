@@ -18,7 +18,7 @@ import java.util.Date;
 /**
  * 公告管理
  *
- * @author hzm
+ * @author hutao
  * @date
  */
 @RestController

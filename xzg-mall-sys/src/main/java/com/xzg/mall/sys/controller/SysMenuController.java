@@ -36,7 +36,7 @@ import io.swagger.annotations.ApiOperation;
 
 /**
  * 系统菜单
- * @author lgh
+ * @author hutao
  */
 @RestController
 @RequestMapping("/sys/menu")

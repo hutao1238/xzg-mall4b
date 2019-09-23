@@ -9,7 +9,7 @@ import java.util.List;
 
 /**
  * 系统配置信息
- * @author lgh
+ * @author hutao
  */
 public interface SysConfigMapper extends BaseMapper<SysConfig>  {
 

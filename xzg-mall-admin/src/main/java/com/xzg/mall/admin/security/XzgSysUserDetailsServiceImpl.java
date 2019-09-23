@@ -30,7 +30,7 @@ import java.util.stream.Collectors;
 /**
  * 用户详细信息
  *
- * @author
+ * @author hutao
  */
 @Slf4j
 @Service

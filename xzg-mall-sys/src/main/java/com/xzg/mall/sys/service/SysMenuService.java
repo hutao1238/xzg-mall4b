@@ -9,7 +9,7 @@ import com.xzg.mall.sys.model.SysMenu;
 
 /**
  * 菜单管理
- * @author lgh
+ * @author hutao
  */
 public interface SysMenuService extends IService<SysMenu> {
 

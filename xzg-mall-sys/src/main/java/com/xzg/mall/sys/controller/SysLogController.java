@@ -22,7 +22,7 @@ import cn.hutool.core.util.StrUtil;
 
 /**
  * 系统日志
- * @author lgh
+ * @author hutao
  */
 @RestController
 @RequestMapping("/sys/log")

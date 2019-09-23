@@ -11,7 +11,7 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 
 /**
  * 自定义 AuthenticationProvider， 以使用自定义的 MyAuthenticationToken
- * @author LGH
+ * @author hutao
  */
 @Slf4j
 public abstract class AbstractUserDetailsAuthenticationProvider implements AuthenticationProvider, InitializingBean {

@@ -5,7 +5,7 @@ import com.xzg.mall.bean.model.TranscityFree;
 
 /**
  *
- * @author lgh on 2018/12/20.
+ * @author hutao.
  */
 public interface TranscityFreeService extends IService<TranscityFree> {
 

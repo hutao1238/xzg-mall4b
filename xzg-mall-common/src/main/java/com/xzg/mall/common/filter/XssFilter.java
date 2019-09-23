@@ -18,7 +18,7 @@ import org.slf4j.LoggerFactory;
 /**
  * 一些简单的安全过滤：
  * xss
- * @author lgh
+ * @author hutao
  */
 public class XssFilter implements Filter {
     Logger logger = LoggerFactory.getLogger(getClass().getName());

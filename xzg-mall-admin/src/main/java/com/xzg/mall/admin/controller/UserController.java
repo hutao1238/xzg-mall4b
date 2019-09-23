@@ -27,7 +27,7 @@ import cn.hutool.extra.emoji.EmojiUtil;
 
 
 /**
- * @author lgh on 2018/10/16.
+ * @author hutao on 2018/10/16.
  */
 @RestController
 @RequestMapping("/admin/user")

@@ -15,7 +15,7 @@ import com.xzg.mall.service.AttachFileService;
 
 /**
  * 文件上传 controller
- * @author lgh
+ * @author hutao
  *
  */
 @RestController

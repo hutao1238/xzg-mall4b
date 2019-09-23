@@ -16,7 +16,7 @@ import org.springframework.context.annotation.Configuration;
 /**
  * 微信公众号配置文件
  *
- * @author LGH
+ * @author hutao
  */
 @Configuration
 @RequiredArgsConstructor

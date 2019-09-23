@@ -2,7 +2,7 @@ package com.xzg.mall.common.enums;
 
 /**
  * 与前端进行特殊交互需要使用的状态码，由于小程序需要，所以状态码只能为3位数字，并且不能与正常的http状态码冲突
- * @author LGH
+ * @author hutao
  */
 public enum XzgHttpStatus {
     /**

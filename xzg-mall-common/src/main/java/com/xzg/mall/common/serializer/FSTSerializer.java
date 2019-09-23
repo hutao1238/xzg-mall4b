@@ -11,7 +11,7 @@ import java.lang.reflect.Field;
 
 /**
  * 使用fts进行序列化
- * @author LGH
+ * @author hutao
  */
 public class FSTSerializer {
 

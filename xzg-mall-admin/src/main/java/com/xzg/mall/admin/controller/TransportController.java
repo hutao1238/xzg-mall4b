@@ -27,7 +27,7 @@ import com.xzg.mall.bean.model.Transport;
 import com.xzg.mall.service.TransportService;
 
 /**
- * @author lgh on 2018/11/16.
+ * @author hutao on 2018/11/16.
  */
 @RestController
 @RequestMapping("/shop/transport")

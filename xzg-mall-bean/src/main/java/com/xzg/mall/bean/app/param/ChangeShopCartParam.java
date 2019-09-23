@@ -6,7 +6,7 @@ import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 
 /**
- * @author LGH
+ * @author hutao
  */
 @Data
 public class ChangeShopCartParam {

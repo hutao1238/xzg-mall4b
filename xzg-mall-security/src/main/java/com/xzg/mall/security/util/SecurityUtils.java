@@ -11,7 +11,7 @@ import org.springframework.security.core.context.SecurityContextHolder;
 /**
  * 安全工具类
  *
- * @author L.cm
+ * @author hutao
  */
 @UtilityClass
 public class SecurityUtils {

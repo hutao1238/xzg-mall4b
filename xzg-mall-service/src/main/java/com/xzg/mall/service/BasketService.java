@@ -12,7 +12,7 @@ import com.xzg.mall.bean.app.param.ShopCartParam;
 import com.xzg.mall.bean.model.Basket;
 
 /**
- * @author lgh on 2018/10/18.
+ * @author hutao
  */
 public interface BasketService extends IService<Basket> {
 

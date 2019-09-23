@@ -2,7 +2,7 @@ package com.xzg.mall.bean.order;
 
 /**
  * 提交订单事件先后顺序
- * @author LGH
+ * @author hutao
  */
 public interface SubmitOrderOrder {
 

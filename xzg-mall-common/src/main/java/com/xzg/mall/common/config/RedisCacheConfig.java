@@ -18,7 +18,7 @@ import org.springframework.data.redis.serializer.*;
 
 /**
  * redis 缓存配置，仅当配置文件中spring.cache.type = redis时生效
- * @author lgh
+ * @author hutao
  */
 @EnableCaching
 @Configuration

@@ -15,7 +15,7 @@ import com.xzg.mall.service.SkuService;
 
 /**
  *
- * @author lgh on 2018/09/29.
+ * @author hutao on 2018/09/29.
  */
 @Service
 public class SkuServiceImpl extends ServiceImpl<SkuMapper, Sku> implements SkuService {

@@ -27,7 +27,7 @@ import com.xzg.mall.service.CategoryService;
 
 /**
  * 分类管理
- * @author lgh
+ * @author hutao
  *
  */
 @RestController

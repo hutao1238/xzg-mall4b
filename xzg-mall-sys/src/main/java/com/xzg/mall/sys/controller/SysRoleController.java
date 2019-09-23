@@ -30,7 +30,7 @@ import cn.hutool.core.util.StrUtil;
 
 /**
  * 角色管理
- * @author lgh
+ * @author hutao
  */
 @RestController
 @RequestMapping("/sys/role")

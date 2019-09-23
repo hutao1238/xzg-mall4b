@@ -13,7 +13,7 @@ import org.springframework.stereotype.Service;
 
 /**
  *
- * @author lgh on 2018/09/07.
+ * @author hutao on 2018/09/07.
  */
 @Service
 public class AppConnectServiceImpl extends ServiceImpl<AppConnectMapper, AppConnect> implements AppConnectService {

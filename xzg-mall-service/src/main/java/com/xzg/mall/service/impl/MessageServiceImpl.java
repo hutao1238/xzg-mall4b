@@ -10,7 +10,7 @@ import com.xzg.mall.service.MessageService;
 
 /**
  *
- * @author lgh on 2018/10/15.
+ * @author hutao
  */
 @Service
 public class MessageServiceImpl extends ServiceImpl<MessageMapper, Message> implements MessageService {

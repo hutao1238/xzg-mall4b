@@ -27,7 +27,7 @@ import com.baomidou.mybatisplus.core.metadata.IPage;
 
 /**
  * 参数管理
- * @author lgh
+ * @author hutao
  */
 @RestController
 @RequestMapping("/admin/attribute")

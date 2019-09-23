@@ -3,7 +3,7 @@ package com.xzg.mall.bean.enums;
 
 /**
  * 运费收费方式 （0 按件数,1 按重量 2 按体积）
- * @author LGH
+ * @author hutao
  */
 public enum TransportChargeType {
 

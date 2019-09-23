@@ -5,7 +5,7 @@ import com.xzg.mall.bean.model.Message;
 
 /**
  *
- * @author lgh on 2018/10/15.
+ * @author hutao.
  */
 public interface MessageService extends IService<Message> {
 

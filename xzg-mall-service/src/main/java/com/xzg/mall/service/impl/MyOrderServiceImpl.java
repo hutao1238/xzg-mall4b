@@ -15,7 +15,7 @@ import com.xzg.mall.dao.OrderMapper;
 import com.xzg.mall.service.MyOrderService;
 
 /**
- * @author lgh on 2018/09/15.
+ * @author hutao on 2018/09/15.
  */
 @Service
 public class MyOrderServiceImpl extends ServiceImpl<OrderMapper, Order> implements MyOrderService {

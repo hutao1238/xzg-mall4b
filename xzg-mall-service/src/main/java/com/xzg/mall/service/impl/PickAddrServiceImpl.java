@@ -10,7 +10,7 @@ import com.xzg.mall.service.PickAddrService;
 
 /**
  *
- * @author lgh on 2018/10/17.
+ * @author hutao on 2018/10/17.
  */
 @Service
 public class PickAddrServiceImpl extends ServiceImpl<PickAddrMapper, PickAddr> implements PickAddrService {

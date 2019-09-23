@@ -12,7 +12,7 @@ import com.xzg.mall.bean.model.ProdComm;
 /**
  * 商品评论
  *
- * @author xwc
+ * @author hutao
  * @date 2019-04-19 10:43:57
  */
 public interface ProdCommService extends IService<ProdComm> {

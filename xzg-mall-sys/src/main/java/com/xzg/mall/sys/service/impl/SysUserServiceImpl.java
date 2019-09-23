@@ -18,7 +18,7 @@ import java.util.Date;
 
 /**
  * 系统用户
- * @author lgh
+ * @author hutao
  */
 @Service("sysUserService")
 @AllArgsConstructor

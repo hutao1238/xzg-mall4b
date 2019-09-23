@@ -10,7 +10,7 @@ import com.xzg.mall.service.TransfeeService;
 
 /**
  *
- * @author lgh on 2018/11/16.
+ * @author hutao
  */
 @Service
 public class TransfeeServiceImpl extends ServiceImpl<TransfeeMapper, Transfee> implements TransfeeService {

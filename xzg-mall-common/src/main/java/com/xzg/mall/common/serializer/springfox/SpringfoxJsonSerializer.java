@@ -11,7 +11,7 @@ import java.util.List;
 
 /**
  * 自定义Swagger 的序列化，去除分页参数中的records值
- * @author LGH
+ * @author hutao
  */
 public class SpringfoxJsonSerializer extends JsonSerializer {
 

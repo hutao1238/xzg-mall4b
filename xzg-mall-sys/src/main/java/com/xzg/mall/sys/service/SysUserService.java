@@ -6,7 +6,7 @@ import com.xzg.mall.sys.model.SysUser;
 
 /**
  * 系统用户
- * @author lgh
+ * @author hutao
  */
 public interface SysUserService extends IService<SysUser> {
 	

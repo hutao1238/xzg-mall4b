@@ -19,7 +19,7 @@ import org.springframework.stereotype.Component;
 
 /**
  * 后台管理员账号密码登陆
- * @author LGH
+ * @author hutao
  */
 @Component
 @AllArgsConstructor

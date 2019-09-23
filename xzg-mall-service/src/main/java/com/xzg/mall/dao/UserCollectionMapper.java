@@ -9,7 +9,7 @@ import com.xzg.mall.bean.model.UserCollection;
 /**
  * 用户收藏表
  *
- * @author xwc
+ * @author hutao
  * @date 2019-04-19 16:57:20
  */
 public interface UserCollectionMapper extends BaseMapper<UserCollection> {

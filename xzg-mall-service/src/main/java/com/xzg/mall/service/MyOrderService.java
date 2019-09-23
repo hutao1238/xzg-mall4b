@@ -8,7 +8,7 @@ import com.xzg.mall.bean.model.Order;
 
 /**
  * 我的订单
- * @author lgh
+ * @author hutao
  */
 public interface MyOrderService extends IService<Order> {
 

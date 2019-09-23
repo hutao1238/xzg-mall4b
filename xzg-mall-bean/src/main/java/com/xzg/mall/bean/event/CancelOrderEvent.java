@@ -6,7 +6,7 @@ import lombok.Data;
 
 /**
  *  取消订单的事件
- * @author
+ * @author hutao
  */
 @Data
 @AllArgsConstructor

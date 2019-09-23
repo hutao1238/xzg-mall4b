@@ -33,7 +33,7 @@ import javax.validation.Valid;
 /**
  * 规格管理
  *
- * @author lgh
+ * @author hutao
  */
 @RestController
 @RequestMapping("/prod/spec")

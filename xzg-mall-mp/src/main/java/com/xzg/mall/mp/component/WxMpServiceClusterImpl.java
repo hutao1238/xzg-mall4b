@@ -16,7 +16,7 @@ import static me.chanjar.weixin.mp.enums.WxMpApiUrl.Other.GET_ACCESS_TOKEN_URL;
 
 /**
  * WxMpServiceImpl 在集群模式获取accessToken的方式
- * @author LGH
+ * @author hutao
  */
 public class WxMpServiceClusterImpl extends WxMpServiceHttpClientImpl {
 

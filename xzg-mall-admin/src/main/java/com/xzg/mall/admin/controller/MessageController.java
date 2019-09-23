@@ -27,7 +27,7 @@ import cn.hutool.core.util.StrUtil;
 
 
 /**
- * @author lgh on 2018/10/15.
+ * @author hutao on 2018/10/15.
  */
 @RestController
 @RequestMapping("/admin/message")

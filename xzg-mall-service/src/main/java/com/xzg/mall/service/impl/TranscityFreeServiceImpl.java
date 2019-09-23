@@ -11,7 +11,7 @@ import com.xzg.mall.service.TranscityFreeService;
 
 /**
  *
- * @author lgh on 2018/12/20.
+ * @author hutao
  */
 @Service
 public class TranscityFreeServiceImpl extends ServiceImpl<TranscityFreeMapper, TranscityFree> implements TranscityFreeService {

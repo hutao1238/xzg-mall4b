@@ -5,7 +5,7 @@ import com.xzg.mall.bean.model.TransfeeFree;
 
 /**
  *
- * @author lgh on 2018/12/20.
+ * @author hutao
  */
 public interface TransfeeFreeService extends IService<TransfeeFree> {
 

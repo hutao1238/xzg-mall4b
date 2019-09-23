@@ -16,7 +16,7 @@ import static me.chanjar.weixin.common.api.WxConsts.XmlMsgType;
 
 /**
  * 微信公众号配置文件
- * @author LGH
+ * @author hutao
  */
 @Configuration
 @AllArgsConstructor

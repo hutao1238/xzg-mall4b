@@ -24,7 +24,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 
 /**
  * 微信公众号登陆
- * @author LGH
+ * @author hutao
  */
 //@Component
 @AllArgsConstructor

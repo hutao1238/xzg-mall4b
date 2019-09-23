@@ -5,7 +5,7 @@ import com.xzg.mall.bean.model.Delivery;
 
 /**
  *
- * @author lgh on 2018/11/26.
+ * @author hutao
  */
 public interface DeliveryService extends IService<Delivery> {
 

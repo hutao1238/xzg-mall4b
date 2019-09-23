@@ -5,7 +5,7 @@ import com.xzg.mall.bean.model.OrderSettlement;
 
 /**
  *
- * @author lgh on 2018/11/10.
+ * @author hutao on 2018/11/10.
  */
 public interface OrderSettlementService extends IService<OrderSettlement> {
 

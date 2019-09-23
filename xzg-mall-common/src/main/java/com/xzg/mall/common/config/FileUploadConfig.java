@@ -12,7 +12,7 @@ import com.xzg.mall.common.bean.Qiniu;
 
 /**
  * 文件上传配置
- * @author lgh
+ * @author hutao
  */
 @Configuration
 public class FileUploadConfig {

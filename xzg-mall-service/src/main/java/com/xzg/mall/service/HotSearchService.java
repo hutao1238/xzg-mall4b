@@ -8,7 +8,7 @@ import java.util.List;
 
 /**
  *
- * @author lgh on 2019/03/27.
+ * @author hutao
  */
 public interface HotSearchService extends IService<HotSearch> {
 

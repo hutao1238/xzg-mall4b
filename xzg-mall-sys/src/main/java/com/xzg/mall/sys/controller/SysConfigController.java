@@ -30,7 +30,7 @@ import cn.hutool.core.util.StrUtil;
 
 /**
  * 系统配置信息
- * @author lgh
+ * @author hutao
  */
 @RestController
 @RequestMapping("/sys/config")

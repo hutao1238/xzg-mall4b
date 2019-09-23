@@ -13,7 +13,7 @@ import org.springframework.stereotype.Component;
  *
  * 已加入分布式锁的实现
  *
- * @author LGH
+ * @author hutao
  */
 @Component
 public class WxMpInRedisConfigStorage extends WxMpDefaultConfigImpl {

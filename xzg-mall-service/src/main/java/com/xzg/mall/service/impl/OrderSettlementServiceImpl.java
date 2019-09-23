@@ -10,7 +10,7 @@ import com.xzg.mall.service.OrderSettlementService;
 
 /**
  *
- * @author lgh on 2018/11/10.
+ * @author hutao on 2018/11/10.
  */
 @Service
 public class OrderSettlementServiceImpl extends ServiceImpl<OrderSettlementMapper, OrderSettlement> implements OrderSettlementService {

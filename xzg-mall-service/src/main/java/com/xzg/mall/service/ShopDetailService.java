@@ -5,7 +5,7 @@ import com.xzg.mall.bean.model.ShopDetail;
 
 /**
  *
- * @author lgh on 2018/08/29.
+ * @author hutao.
  */
 public interface ShopDetailService extends IService<ShopDetail> {
 

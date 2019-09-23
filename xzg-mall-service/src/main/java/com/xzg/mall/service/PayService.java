@@ -6,7 +6,7 @@ import com.xzg.mall.bean.pay.PayInfoDto;
 import java.util.List;
 
 /**
- * @author lgh on 2018/09/15.
+ * @author hutao on 2018/09/15.
  */
 public interface PayService {
 

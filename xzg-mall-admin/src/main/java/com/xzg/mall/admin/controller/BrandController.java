@@ -19,7 +19,7 @@ import java.util.Objects;
 /**
  * 品牌管理
  *
- * @author lgh
+ * @author hutao
  */
 @RestController
 @RequestMapping("/admin/brand")

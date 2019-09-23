@@ -7,7 +7,7 @@ import com.xzg.mall.bean.model.OrderItem;
 
 /**
  *
- * @author lgh on 2018/09/15.
+ * @author hutao.
  */
 public interface OrderItemService extends IService<OrderItem> {
 

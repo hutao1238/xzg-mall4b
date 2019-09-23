@@ -13,7 +13,7 @@ import com.xzg.mall.service.OrderItemService;
 
 /**
  *
- * @author lgh on 2018/09/15.
+ * @author hutao
  */
 @Service
 public class OrderItemServiceImpl extends ServiceImpl<OrderItemMapper, OrderItem> implements OrderItemService {

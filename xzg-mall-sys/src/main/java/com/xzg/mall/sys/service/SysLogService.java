@@ -7,7 +7,7 @@ import com.xzg.mall.sys.model.SysLog;
 
 /**
  * 系统日志
- * @author lgh
+ * @author hutao
  */
 public interface SysLogService extends IService<SysLog> {
 

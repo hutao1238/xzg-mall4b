@@ -2,7 +2,7 @@ package com.xzg.mall.bean.enums;
 
 /**
  * 订单入口
- * @author LGH
+ * @author hutao
  */
 public enum OrderEntry {
 

@@ -5,7 +5,7 @@ import com.xzg.mall.quartz.model.ScheduleJob;
 
 /**
  * 
- * @author lgh
+ * @author hutao
  *
  */
 public interface ScheduleJobService extends IService<ScheduleJob>{

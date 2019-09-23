@@ -23,7 +23,7 @@ import springfox.documentation.annotations.ApiIgnore;
 
 /**
  * 登录相关
- * @author lgh
+ * @author hutao
  */
 @Controller
 @AllArgsConstructor

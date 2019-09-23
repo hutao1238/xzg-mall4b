@@ -8,7 +8,7 @@ import com.xzg.mall.sys.model.SysRole;
 
 /**
  * 角色
- * @author lgh
+ * @author hutao
  */
 public interface SysRoleService extends IService<SysRole> {
 
