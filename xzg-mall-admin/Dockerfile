@@ -1,4 +1,4 @@
-FROM anapsix/alpine-java:8_server-jre_unlimited
+FROM openjdk:8
 
 MAINTAINER hutao(hutaobad@126.com)
 
@@ -8,8 +8,8 @@ RUN mkdir -p /opt/projects/mall
 
 WORKDIR /opt/projects/mall
 
-ADD ./xzg-mall-admin/target/xzg-mall-admin-1.0.0.jar ./
+ADD ./xzg-mall-admin-1.0.0.jar ./
 
 EXPOSE 8085
 
-CMD java -jar -XX:MetaspaceSize=128m -XX:MaxMetaspaceSize=128m -Xms512m -Xmx512m -Xmn128m -Xss256k -XX:SurvivorRatio=8 -XX:+UseConcMarkSweepGC -Dspring.profiles.active=docker,quartz xzg-mall-admin-1.0.0.jar
+CMD java -jar xzg-mall-admin-1.0.0.jar
